@@ -1,0 +1,581 @@
+.orders-page {
+  position: relative;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  background: #f9f9fb;
+}
+
+.orders-page .orders-screen {
+  position: relative;
+  margin: 0 auto;
+  width: 1300px;
+  height: 1106px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 78px 48px;
+}
+
+.orders-page .orders-screen .left-side {
+  position: relative;
+  /* Aside - Left Sidebar (User Info & Payment) */
+  width: 362.67px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.orders-page .orders-screen .left-side .user-info {
+  position: relative;
+  /* User Brief Info Card */
+  width: 362.67px;
+  height: 278px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  border: 1px solid rgba(232, 232, 234, 1);
+  border-radius: 24px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 1);
+}
+
+.orders-page .orders-screen .left-side .user-info .overlay {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  /* clip-path: fill-box; */
+
+  /* Overlay */
+  width: 56px;
+  height: 56px;
+  border-radius: 0px 4000px 0px 9999px;
+  background: rgba(188, 1, 0, 0.05);
+}
+
+.orders-page .orders-screen .left-side .user-info .user-card {
+  position: relative;
+  /* Container */
+  width: 296.67px;
+  height: 212px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.orders-screen .left-side .user-info .user-card .avatar {
+  position: relative;
+  /* Margin */
+  width: 96px;
+  height: 96px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 4px rgba(188, 1, 0, 0.1);
+  background: rgba(255, 255, 255, 0);
+}
+
+.orders-screen .left-side .user-info .user-card .avatar img {
+  position: relative;
+  /* SVG */
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+}
+
+.orders-screen .left-side .user-info .user-card span {
+  position: relative;
+  color: rgba(26, 28, 29, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.6px;
+  text-align: center;
+}
+
+.orders-screen .left-side .user-info .user-card p {
+  position: relative;
+  color: rgba(95, 94, 94, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.orders-screen .left-side .payment {
+  position: relative;
+  width: 362.67px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 32px;
+  box-sizing: border-box;
+  border: 1px solid rgba(232, 232, 234, 1);
+  border-radius: 24px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 1);
+}
+
+.orders-screen .left-side .payment .header span {
+  position: relative;
+  color: rgba(26, 28, 29, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.45px;
+  text-align: left;
+}
+
+.orders-screen .left-side .payment .pay-ways {
+  position: relative;
+  width: 296.67px;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.orders-screen .left-side .payment .pay-ways .way {
+  position: relative;
+  /* Background+Border */
+  width: 48px;
+  height: 32px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid rgba(232, 232, 234, 1);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 1), rgba(238, 238, 240, 1);
+}
+
+.orders-screen .left-side .payment .pay-ways .way img {
+  position: relative;
+  /* Background+Border */
+  width: 48px;
+  height: 32px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid rgba(232, 232, 234, 1);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 1), rgba(238, 238, 240, 1);
+}
+
+.orders-screen .left-side .payment .form {
+  position: relative;
+  /* Form */
+  width: 296.67px;
+  height: auto;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 0px;
+}
+
+.orders-screen .left-side .payment .form .name {
+  position: relative;
+  /* Container */
+  width: 296.67px;
+  height: 63px;
+}
+
+.orders-screen .left-side .payment .form .name span {
+  position: relative;
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 15px;
+  letter-spacing: 1px;
+  text-align: left;
+  text-transform: uppercase;
+  color: rgba(95, 94, 94, 1);
+}
+
+.orders-screen .left-side .payment .form .name input {
+  position: relative;
+  /* Input */
+  width: 296.66px;
+  height: 44px;
+  margin-top: 5px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 13px 16px 14px 16px;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  background: rgba(243, 243, 245, 1);
+}
+
+.orders-screen .left-side .payment .form .expiry {
+  position: relative;
+  /* Container */
+  width: 296.67px;
+  height: 63px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.orders-screen .left-side .payment .form .expiry .exp {
+  position: relative;
+  /* Container */
+  width: 140.33px;
+  height: 63px;
+}
+
+.orders-screen .left-side .payment .form .expiry .exp span {
+  position: relative;
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 15px;
+  letter-spacing: 1px;
+  text-align: left;
+  text-transform: uppercase;
+  color: rgba(95, 94, 94, 1);
+}
+
+.orders-screen .left-side .payment .form .expiry .exp input {
+  position: relative;
+  /* Input */
+  width: 140.33px;
+  height: 44px;
+  margin-top: 5px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 13px 16px 14px 16px;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  background: rgba(243, 243, 245, 1);
+}
+
+.orders-screen .left-side .payment .form .buttons {
+  position: relative;
+  /* Container */
+  width: 296.67px;
+  height: auto;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.orders-screen .left-side .payment .form .buttons .btn {
+  position: relative;
+  /* Button */
+  width: 140.33px;
+  height: 40px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0px 12px 0px;
+  border-radius: 12px;
+  background: rgba(26, 28, 29, 1);
+  margin: 0;
+  padding: 0;
+}
+
+.orders-screen .left-side .payment .form .buttons .btn .txt {
+  position: relative;
+  width: 140.33px;
+  height: 40px;
+  color: rgba(249, 249, 251, 1);
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 1.2px;
+  text-align: center;
+  text-transform: uppercase;
+}
+/*********** RIGHT SIDE DETAILS *************/
+
+.orders-screen .right .header {
+  position: relative;
+  /* Header Section */
+  width: 773.33px;
+  height: 120px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.orders-screen .right .header span {
+  position: relative;
+  color: rgba(26, 28, 29, 1);
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 48px;
+  letter-spacing: -1.2px;
+  text-align: left;
+}
+
+.orders-screen .right .header p {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: rgba(95, 94, 94, 1);
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.orders-screen .right .sections {
+  position: relative;
+  /* Orders List */
+  width: 773.33px;
+  height: auto;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 0px 0px 32px 0px;
+}
+
+.orders-screen .right .sections .section-box {
+  position: relative;
+  /* Orders List */
+  width: 773.33px;
+  height: auto;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 0px 0px 32px 0px;
+}
+
+.orders-screen .right .sections .section-box .head-tabs {
+  position: relative;
+  /* Filters/Tabs */
+  width: 773.33px;
+  height: 34px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+
+.orders-screen .right .sections .section-box .head-tabs .tab {
+  position: relative;
+  /* Filters/Tabs */
+  /* Button */
+  width: auto;
+  height: 32px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+
+  box-sizing: border-box;
+  border: 1px solid rgba(232, 232, 234, 1);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 1);
+
+  color: rgba(26, 28, 29, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+.orders-screen .right .sections .section-box .box-content {
+  position: relative;
+  /* Orders List */
+  width: 773.33px;
+  height: auto;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 0px 0px 32px 0px;
+}
+
+.orders-screen .right .sections .section-box .box-content .content-card {
+  position: relative;
+  /* Redesigned Order Card 1 */
+  width: 773.33px;
+  height: auto;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.right .sections .section-box .box-content .content-card .content {
+  position: relative;
+  /* Container */
+  width: 723.33px;
+  height: auto;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/******** HELP SECION *********/
+
+.right .help {
+  position: relative;
+  width: 773.33px;
+  height: 290px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 1px solid rgba(238, 238, 240, 1);
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 1);
+}
+
+.right .help .title-desc {
+  position: relative;
+  width: 353.67px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 32px;
+}
+
+.right .help .title-desc span {
+  position: relative;
+  color: rgba(26, 28, 29, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -1.2px;
+  text-align: left;
+}
+
+.right .help .title-desc p {
+  position: relative;
+  color: rgba(95, 94, 94, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.75px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.right .help .title-desc strong {
+  position: relative;
+  color: rgba(188, 1, 0, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 1.2px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.right .help .main-img {
+  position: relative;
+  /* Overlay+Shadow */
+  width: 353.67px;
+  height: 256px;
+  border-radius: 24px;
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.right .help .main-img img {
+  position: relative;
+  /* Overlay+Shadow */
+  width: 353.67px;
+  height: 256px;
+  border-radius: 24px;
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+}

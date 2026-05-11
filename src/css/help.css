@@ -1,0 +1,197 @@
+.help-page {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background: #f9f9fb;
+}
+
+.help-page .help-screen {
+  position: relative;
+  width: 1300px;
+  height: auto;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 46px 40px 80px 40px;
+  /* height: 1070px; */
+}
+
+.help-page .help-screen .terms-faq {
+  position: relative;
+  width: 670.67px;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+.help-page .help-screen .terms-faq .terms {
+  position: relative;
+  width: 670.67px;
+  height: 375.75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.help-page .help-screen .terms-faq .title {
+  position: relative;
+  width: 670.67px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+
+.help-page .help-screen .terms-faq .title span {
+  position: relative;
+  color: rgba(26, 28, 29, 0.7);
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 1.2px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.help-page .help-screen .terms-faq .terms .terms-con {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 670.67px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 32px;
+  /* box-sizing: border-box; */
+  /* border-left: 4px solid rgba(188, 1, 0, 1); */
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 1);
+  transition: transform 250ms ease-out;
+  gap: 16px;
+}
+
+.help-page .help-screen .terms-faq .terms .terms-con:hover {
+  border-left: 4px solid rgba(188, 1, 0, 1);
+}
+
+.help-page .help-screen .terms-faq .terms .terms-con .rules {
+  position: relative;
+  /* Container */
+  width: 586.66px;
+  height: auto;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.help-page .help-screen .terms-faq .terms .terms-con .rules span {
+  position: relative;
+  color: rgba(26, 28, 29, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 14px;
+  font-weight: bolder;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.help-page .help-screen .terms-faq .terms .terms-con .rules p {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: rgba(95, 94, 94, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+/***********  FAQ  **********/
+
+.help-page .help-screen .terms-faq .faq {
+  position: relative;
+  /* FAQ Section */
+  width: 670.67px;
+  height: 620.5px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.help-page .help-screen .terms-faq .faq .faq-con {
+  position: relative;
+  /* Container */
+  width: 670.67px;
+  height: 566px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/**********************************
+           CONTACT FORM              
+***********************************/
+
+.help-page .help-screen .contact-sec {
+  position: relative;
+  /* Right Column: Contact Form */
+  width: 465.33px;
+  height: 1070px;
+  display: flex;
+}
+
+.help-page .help-screen .contact-sec .form-con {
+  position: relative;
+  /* Background+Shadow */
+  width: 465.33px;
+  height: 724px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 40px 40px 56px 40px;
+
+  border-radius: 16px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 1);
+  overflow: hidden;
+}
+
+.help-page .help-screen .contact-sec .form-con .shape {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 192px;
+  height: 192px;
+  border-radius: 9999px;
+  filter: blur(64px);
+  background: rgba(188, 1, 0, 0.05);
+}

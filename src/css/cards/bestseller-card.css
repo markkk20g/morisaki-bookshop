@@ -1,0 +1,37 @@
+.topbar-frame {
+  /* width: 100%;
+  height: auto;
+  background: rgba(248, 250, 252, 0.8); */
+}
+
+.topbar-frame .topbar-container {
+  /* width: 1300px;
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32.02px 16px 32px; */
+}
+
+.topbar-frame .topbar-container .left {
+  /* Container */
+  /* width: 226.8px;
+height: 32px; */
+  /* Auto layout */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; */
+}
+
+.topbar-frame .topbar-container .middle {
+  /* width: auto;
+  height: auto;
+  max-height: 36px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 32px; */
+}

@@ -1,0 +1,530 @@
+@import url("https://googleapis.com");
+
+.products-page {
+  position: relative;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  background: rgba(249, 249, 251, 1);
+}
+
+.products-page .products-screen {
+  position: relative;
+  /* Products */
+  /* width: 1300px;
+  height: 1478px; */
+  /* Auto layout */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 48px; */
+  /* padding: 96px 0px 0.09px 0px; */
+  background: rgba(249, 249, 251, 1);
+
+  /* Main */
+  /* margin-top: 48px; */
+  /* margin-bottom: 48px; */
+  width: 1300px;
+  height: auto;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  /* Auto layout */
+  display: grid;
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  row-gap: 48px;
+  column-gap: 48px;
+}
+
+.products-page .products-screen .main-frame {
+  /* Section - Main Content: Product Grid */
+  width: 1005.33px;
+  height: 1477.91px;
+  grid-row: 1 / span 1;
+  grid-column: 3 / span 10;
+}
+
+.products-page .products-screen .sidebar-filter {
+  position: relative;
+  /* Aside - Sidebar: Filters & Sort */
+  width: 162.67px;
+  height: 1477.91px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.products-page .products-screen .sidebar-filter .sidebar-category {
+  /* Categories */
+  width: 162.67px;
+  height: auto;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.products-screen .sidebar-filter .category-title {
+  position: relative;
+  /* CATEGORIES / GENRE */
+  width: 162.67px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  color: rgba(96, 62, 57, 1);
+
+  font-family: "Inter";
+  font-style: Regular;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 1.4px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.products-screen .sidebar-filter .sidebar-category .category-list {
+  /* List */
+  width: 162.67px;
+  height: auto;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* gap: 16px; */
+}
+
+.products-screen .sidebar-filter .sidebar-category .category-list .list-item {
+  /* Item → Link */
+  width: 162.67px;
+  height: 60px;
+  padding: 0px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 49.029998779296875px; */
+}
+
+.sidebar-filter .sidebar-category .category-list .list-item .category-name {
+  /* Text */
+  padding: 0px;
+  width: 84px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  color: rgba(188, 1, 0, 1);
+
+  font-family: "Inter";
+  font-style: Regular;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgba(188, 1, 0, 1);
+}
+
+.sidebar-filter .sidebar-category .category-list .list-item .category-total {
+  /* Background */
+  width: 39.3px;
+  height: auto;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 8px 2px 8px;
+
+  border-radius: 9999px;
+  background: rgba(255, 218, 212, 1);
+}
+
+.sidebar-filter .sidebar-category .category-list .list-item .category-total p {
+  /* Text */
+  width: 23.3px;
+  height: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  color: rgba(188, 1, 0, 1);
+
+  font-family: "Inter";
+  font-style: Regular;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.sidebar-filter .sidebar-sorting {
+  /* Sort By */
+  position: relative;
+  width: 162.67px;
+  height: 84px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.sidebar-filter .sidebar-sorting .sorting-tool {
+  /* Options */
+  width: 162.67px;
+  height: 48px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 16px 12px 16px;
+
+  border-radius: 8px;
+  background: rgba(243, 243, 245, 1);
+}
+
+.sidebar-filter .sidebar-sorting .sorting-tool p {
+  /* Relevance */
+  width: 130.67px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  color: rgba(26, 28, 29, 1);
+
+  font-family: "Inter";
+  font-style: Regular;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+/* MAIN FRAME */
+
+.products-screen .main-frame {
+  /* Section - Main Content: Product Grid */
+  width: 1100.33px;
+  height: 1477.91px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.products-screen .main-frame .main-frame-info {
+  /* Container */
+  width: 1005.33px;
+  height: 64px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.products-screen .main-frame .main-frame-info .collect-title {
+  /* Heading 1 */
+  width: auto;
+  height: auto;
+  max-height: 40px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.products-screen .main-frame .main-frame-info .collect-title span {
+  color: rgba(26, 28, 29, 1);
+
+  font-family: "Poppins", sans-serif;
+  font-style: Regular;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: left;
+}
+
+/* MAIN FRAME --- PRODUCTS AND PAGINATION */
+
+.products-screen .main-frame .main-frame-items {
+  /* Container */
+  width: 1005.33px;
+  height: 917.91px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 0px 0px 56px 0px;
+}
+
+/* PAGINATION */
+
+/* LOCATION */
+
+.products-screen .main-frame .main-frame-location {
+  position: relative;
+  /* Stores Info Section */
+  margin-top: 40px;
+  width: 1005.33px;
+  height: 416px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px;
+  border-radius: 24px;
+  background: rgba(243, 243, 245, 1);
+}
+
+.products-screen .main-frame .main-frame-location .location-frame {
+  position: relative;
+  /* Container */
+  width: 909.33px;
+  height: 320px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-frame .main-frame-location .location-frame .location-info {
+  position: relative;
+  /* Container */
+  width: 430.67px;
+  height: 292px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-frame .main-frame-location .location-frame .location-info .title-desc {
+  position: relative;
+  width: 430px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main-frame
+  .main-frame-location
+  .location-frame
+  .location-info
+  .title-desc
+  span {
+  position: relative;
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: -0.75px;
+  text-align: left;
+  color: rgba(26, 28, 29, 1);
+}
+
+.main-frame .main-frame-location .location-frame .location-info .title-desc p {
+  position: relative;
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgba(95, 94, 94, 1);
+}
+
+.main-frame .main-frame-location .location-frame .location-info .addresses {
+  position: relative;
+
+  /* Container */
+  width: 430.67px;
+  height: auto;
+  margin-top: 15px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 0px;
+}
+
+.main-frame
+  .main-frame-location
+  .location-frame
+  .location-info
+  .addresses
+  .address1 {
+  position: relative;
+  /* Container */
+  width: 430.67px;
+  height: 44px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.main-frame
+  .main-frame-location
+  .location-frame
+  .location-info
+  .addresses
+  .address1
+  .icon {
+  position: relative;
+  display: flex;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(188, 1, 0, 0.1);
+}
+.main-frame
+  .main-frame-location
+  .location-frame
+  .location-info
+  .addresses
+  .address1
+  .address-txt {
+  position: relative;
+  width: 440px;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.main-frame
+  .main-frame-location
+  .location-frame
+  .location-info
+  .addresses
+  .address1
+  .address-txt
+  span {
+  position: relative;
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgba(26, 28, 29, 1);
+}
+
+.main-frame
+  .main-frame-location
+  .location-frame
+  .location-info
+  .addresses
+  .address1
+  .address-txt
+  p {
+  position: relative;
+
+  color: rgba(95, 94, 94, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin: 0;
+}
+
+.main-frame .main-frame-location .location-frame .location-visuals {
+  position: relative;
+  /* Container */
+  /* Container */
+  width: 436.13px;
+  height: 334.83px;
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 1;
+}
+
+.main-frame-location .location-frame .location-visuals .main-img {
+  position: relative;
+  width: 430.67px;
+  height: 319.99px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  transform: rotate(2deg);
+  border-radius: 16px;
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.main-frame-location .location-frame .location-visuals .main-img img {
+  position: relative;
+  width: 430.67px;
+  height: 319.99px;
+  border-radius: 16px;
+}
+
+.main-frame-location .location-frame .location-visuals .tag {
+  position: absolute;
+  bottom: -5px;
+  left: -25px;
+  width: 171.57px;
+  height: 88px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  transform: rotate(-3deg);
+  border-radius: 16px;
+  background: rgba(188, 1, 0, 1);
+  box-shadow:
+    0px 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0px 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.main-frame-location .location-frame .location-visuals .tag p {
+  position: relative;
+  color: rgba(255, 255, 255, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}

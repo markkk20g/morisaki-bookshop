@@ -1,0 +1,96 @@
+.foot-frame {
+  color: #f2f2f2;
+  justify-content: space-between;
+}
+
+.footer-store-desc {
+  width: 240px;
+  /* margin-top: 22px; */
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #f2f2f2;
+}
+
+.foot-logo {
+  margin-bottom: 20px;
+  width: 150px;
+}
+
+.foot-logo .logo-text {
+  font-family: "Moonshine";
+  color: #fff;
+  font-size: 25px;
+  margin-bottom: -10px;
+  margin-top: -3px;
+}
+
+.foot-second-col {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+}
+
+.foot-title {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 18px;
+  font-style: normal;
+  color: #fff;
+}
+
+.foot-second-col .contact-info-details {
+  margin-top: 42px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 16px;
+  font-style: normal;
+  color: #f2f2f2;
+}
+
+.foot-second-col .work-hours {
+  margin-top: 37px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 16px;
+  font-style: normal;
+  color: #f2f2f2;
+}
+
+
+
+.foot-third-col {
+  display: flex;
+  flex-direction: column;
+  width: 90px;
+}
+
+.foot-third-col .foot-links {
+  margin-top: 42px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 16px;
+  font-style: normal;
+  color: #f2f2f2;
+}
+
+
+.foot-forth-col {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.foot-forth-col .marketing-txt {
+  margin-top: 42px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 13px;
+  font-style: normal;
+  color: #f2f2f2;
+}
