@@ -2,7 +2,7 @@
 import React, { useId } from "react";
 import GavelIcon from '@mui/icons-material/Gavel';
 import HelpCenterOutlinedIcon from '@mui/icons-material/HelpCenterOutlined';
-import { Box, Container, Stack } from "@mui/material";
+import { Box, Button, Container, Stack } from "@mui/material";
 
 // import * as React from 'react';
 import Accordion from '@mui/material/Accordion';
@@ -10,7 +10,6 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 import "../../../css/help.css";
 
@@ -101,8 +100,10 @@ export default function HelpPage() {
             </div>
             <Stack className="form">
               <Stack className="header">
-                <span></span>
-                <p></p>
+                <span>Contact Our Team</span>
+                <p>Need specialized assistance? Send us a message and a 
+                  member of our team will respond within 24 hours.
+                </p>
               </Stack>
               <Stack className="main">
                 <Box className="form-in">
@@ -130,6 +131,9 @@ export default function HelpPage() {
                   <textarea name="message" rows={5} placeholder="How can we help?">
                     
                   </textarea>
+                </Box>
+                <Box>
+                  <Button className="button">Send Message</Button>
                 </Box>
               </Stack>
             </Stack>
