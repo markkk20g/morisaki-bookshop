@@ -11,11 +11,50 @@ import "../../../css/orders.css";
 
 export default function PauseOrders() {
   return (
-    <TabPanel value="1">
+    <TabPanel value="1" sx={{padding: '0px'}}>
       <Stack className="content-card">
         <Stack className="content">
-          <Stack className="names"></Stack>
-          <Stack className="numbers"></Stack>
+          <Stack className="head">
+            <Stack className="title">
+              <span>Order #RF-92834</span>
+              <p>2026 May 11 - 21 : 01</p>
+            </Stack>
+            <Stack className="butts">
+              <Button className="cancel">Cancel</Button>
+              <Button className="pay">payment</Button>
+            </Stack>
+          </Stack>
+          <Stack className="orders">
+            <Stack className="item">
+              <Stack className="item-title">
+                <Box>
+                  <img src="" alt=""/>
+                </Box>
+                <Stack className="names">
+                  <span>The Great Gatsby</span>
+                  <p>F. Scott Fitzgerald</p>
+                </Stack>
+              </Stack>
+              <Stack className="item-price">
+                <span>$14.50</span>
+                <p>Qty: 1</p>
+              </Stack>
+            </Stack>
+          </Stack>
+          <Stack className="sums">
+            <Stack className="cost">
+              <span>Subtotal (3 items)</span>
+              <p>$ 57.50</p>
+            </Stack>
+            <Stack className="cost">
+              <span>Shipping</span>
+              <p>Free</p>
+            </Stack>
+            <Stack className="total">
+              <span>Total</span>
+              <p>$ 57.50</p>
+            </Stack>
+          </Stack>
         </Stack>
       </Stack>
     </TabPanel>
