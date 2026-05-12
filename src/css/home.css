@@ -627,6 +627,169 @@
 }
 
 /***************************************************
+                  TRENDING BOOKS
+****************************************************/
+
+.homepage .trend-page {
+  width: 100%;
+  height: auto;
+  background: rgba(26, 28, 29, 1);
+  box-sizing: border-box;
+}
+
+.trend-page .trend-container {
+  width: 1300px;
+  height: auto;
+  padding: 96px 0;
+}
+
+.trend-page .trend-container .trend-frame {
+  position: relative;
+  width: 95%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 80px;
+  /* padding: 0px 32px; */
+}
+
+.trend-page .trend-container .trend-frame .trend-head {
+  position: relative;
+  width: 100%;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.trend-page .trend-container .trend-frame .trend-head span {
+  position: relative;
+  color: #f5f5f5;
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -0.9px;
+  text-align: left;
+}
+
+.trend-page .trend-container .trend-frame .trend-head p {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: rgb(232, 232, 232);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.trend-page .trend-container .trend-frame .trend-main {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.trend-page .trend-container .trend-frame .trend-main .trend-card {
+  position: relative;
+  width: 352px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  margin-bottom: 20px;
+}
+
+.trend-main .trend-card .trend-frame {
+  position: relative;
+  width: 352px;
+  /* width: 288px; */
+  height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.trend-main .trend-card .trend-frame img {
+  position: relative;
+  width: 352px;
+  /* width: 288px; */
+  height: 440px;
+  border-radius: 12px;
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0);
+  transition: transform 250ms ease-in-out;
+}
+
+.trend-main .trend-card .trend-frame img:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 1);
+}
+
+.trend-main .trend-card .trend-content {
+  position: relative;
+  width: 352px;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 20px;
+}
+
+.trend-main .trend-card .trend-content span {
+  position: relative;
+  color: rgba(249, 249, 251, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.trend-main .trend-card .trend-content p {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: rgb(232, 232, 232);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.trend-main .trend-card .trend-content .trend-footer {
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/***************************************************
                   EVENT SECTION
 ****************************************************/
 
@@ -641,7 +804,7 @@
   position: relative;
   /* Section - 7. Events */
   width: 1300px;
-  height: 736px;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -653,8 +816,7 @@
   position: relative;
   /* Container */
   width: 1280px;
-  height: 544px;
-  /* Auto layout */
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -706,7 +868,7 @@
   position: relative;
   /* Container */
   width: 1216px;
-  height: 408px;
+  height: auto;
   display: flex;
   flex-direction: row;
   gap: 33px;
