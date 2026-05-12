@@ -11,6 +11,83 @@ import "../../../css/orders.css";
 
 export default function ProcessOrders() {
   return (
-    <TabPanel value="2">Item Two</TabPanel>
+    <TabPanel value="2" sx={{padding: '0px'}}>
+      <Stack className="content-card">
+        <Stack className="content">
+          <Stack className="head">
+            <Stack className="title">
+              <span>Order #RF-92834</span>
+              <p>2026 May 12 - 19 : 49</p>
+            </Stack>
+            <Stack className="butts">
+              <Button className="verify">Verify to fulfill</Button>
+              {/* <Button className="pay">payment</Button> */}
+            </Stack>
+          </Stack>
+          <Stack className="orders">
+            <Stack className="item">
+              <Stack className="item-title">
+                <Box>
+                  <img src="/img/new/lie-to-me.webp" alt=""/>
+                </Box>
+                <Stack className="names">
+                  <span>The Great Gatsby</span>
+                  <p>F. Scott Fitzgerald</p>
+                </Stack>
+              </Stack>
+              <Stack className="item-price">
+                <span>$17.50</span>
+                <p>Qty: 1</p>
+              </Stack>
+            </Stack>
+            <Stack className="item">
+              <Stack className="item-title">
+                <Box>
+                  <img src="/img/new/lie-to-me.webp" alt=""/>
+                </Box>
+                <Stack className="names">
+                  <span>The Great Gatsby</span>
+                  <p>F. Scott Fitzgerald</p>
+                </Stack>
+              </Stack>
+              <Stack className="item-price">
+                <span>$17.50</span>
+                <p>Qty: 1</p>
+              </Stack>
+            </Stack>
+            <Stack className="item">
+              <Stack className="item-title">
+                <Box>
+                  <img src="/img/new/lie-to-me.webp" alt=""/>
+                </Box>
+                <Stack className="names">
+                  <span>The Great Gatsby</span>
+                  <p>F. Scott Fitzgerald</p>
+                </Stack>
+              </Stack>
+              <Stack className="item-price">
+                <span>$17.50</span>
+                <p>Qty: 1</p>
+              </Stack>
+            </Stack>
+            
+          </Stack>
+          <Stack className="sums">
+            <Stack className="cost">
+              <span>Subtotal (3 items)</span>
+              <p>$ 52.50</p>
+            </Stack>
+            <Stack className="cost">
+              <span>Shipping</span>
+              <p>Free</p>
+            </Stack>
+            <Stack className="total">
+              <span>Total</span>
+              <p>$ 52.50</p>
+            </Stack>
+          </Stack>
+        </Stack>
+      </Stack>
+    </TabPanel>
   )
 }

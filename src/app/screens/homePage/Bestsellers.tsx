@@ -7,6 +7,23 @@ import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import BestsellerCard from "../../components/common/BestsellerCard";
 
+import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react"
+
+// Import Swiper styles
+
+// export default () => (
+//   <Swiper
+//     modules={[Navigation, Pagination]}
+//     slidesPerView={3}
+//     navigation
+//     pagination={{ clickable: true }}
+//   >
+//     <SwiperSlide>Slide 1</SwiperSlide>
+//     <SwiperSlide>Slide 2</SwiperSlide>
+//   </Swiper>
+// );
+
 export default function Bestsellers() {
   const newArrivals = [
     {
@@ -50,7 +67,7 @@ export default function Bestsellers() {
     // },
   ];
 
-  const [bestsellers, setBestsellers] = useState<number[]>([1, 2, 3, 4,])
+  const [bestsellers, setBestsellers] = useState<number[]>([1, 2, 3, 4, 5, 6,])
   return (
     <div className="bestsellers-frame">
       <Container>
@@ -61,8 +78,18 @@ export default function Bestsellers() {
               <Box>The titles defining this month's cultural conversation.</Box>
             </Stack>
             <Box className="view-more-btn">
-              <Button className="btn"><KeyboardArrowLeftIcon style={{color:' rgba(26, 28, 29, 1)'}}/></Button>
-              <Button className="btn"><KeyboardArrowRightIcon style={{color:' rgba(26, 28, 29, 1)'}}/></Button>
+              <Button className="btn">
+                <KeyboardArrowLeftIcon 
+                  style={{color:' rgba(26, 28, 29, 1)'}}
+                  className="swiper-best-prev"
+                />
+              </Button>
+              <Button className="btn">
+                <KeyboardArrowRightIcon 
+                  style={{color:' rgba(26, 28, 29, 1)'}}
+                  className="swiper-best-next"
+                />
+              </Button>
             </Box>
           </Stack>
 
@@ -70,26 +97,30 @@ export default function Bestsellers() {
             className="cards-frame"
           // sx={{ width: "165px", height: "225px" }}
           >
-            {bestsellers.length !== 0 ? (
-              bestsellers.map((ele, index) => {
-                return (
-                  // <Stack className="card">
-                  //   <Box sx={{ bgcolor: "white", borderRadius: "md" }}>
-                  //     <img src={ele.imagePath} />
-                  //   </Box>
-                  //   <Stack className="card-info">
-                  //     <Box>{ele.productName}</Box>
-                  //     <Box>John Keyhan</Box>
-                  //     <Box>$29</Box>
-                  //     <Box>$29</Box>
-                  //   </Stack>
-                  // </Stack>
-                  <BestsellerCard key={index}/>
-                );
-              })
-            ) : (
-              <Box>New Arrivals are not available!</Box>
-            )}
+            <Swiper
+              modules={[Navigation, Pagination]}
+              className="swiper-best"
+              spaceBetween={30}
+              slidesPerView={4}
+              navigation={{
+                nextEl: '.swiper-best-next',
+                prevEl: '.swiper-best-prev',
+              }}
+              pagination={{ el: '.view-more-btn', clickable: true }}
+            >
+              {bestsellers.length !== 0 ? (
+                bestsellers.map((ele, index) => {
+                  return (
+                    <SwiperSlide className="best-card-slide" key={index}>
+                      <BestsellerCard />
+                    </SwiperSlide>
+                    
+                  );
+                })
+              ) : (
+                <Box>New Arrivals are not available!</Box>
+              )}
+            </Swiper>
           </Stack>
         </Stack>
       </Container>

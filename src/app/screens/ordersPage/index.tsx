@@ -107,12 +107,12 @@ export default function OrdersPage() {
                     TabIndicatorProps={{style: {display: 'none'}}}
                   >
                     <Tab 
-                      label="Item One"
+                      label="Paused Orders"
                       value="1"
                       className="tab"
                     />
-                    <Tab label="Item Two" value="2" className="tab"/>
-                    <Tab label="Item Three" value="3" className="tab"/>
+                    <Tab label="process orders" value="2" className="tab"/>
+                    <Tab label="finished orders" value="3" className="tab"/>
                   </TabList>
                 </Box>
                 <Stack className="box-content">

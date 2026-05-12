@@ -28,7 +28,7 @@ export default function PauseOrders() {
             <Stack className="item">
               <Stack className="item-title">
                 <Box>
-                  <img src="" alt=""/>
+                  <img src="/img/new/lie-to-me.webp" alt=""/>
                 </Box>
                 <Stack className="names">
                   <span>The Great Gatsby</span>
@@ -36,15 +36,46 @@ export default function PauseOrders() {
                 </Stack>
               </Stack>
               <Stack className="item-price">
-                <span>$14.50</span>
+                <span>$17.50</span>
                 <p>Qty: 1</p>
               </Stack>
             </Stack>
+            <Stack className="item">
+              <Stack className="item-title">
+                <Box>
+                  <img src="/img/new/lie-to-me.webp" alt=""/>
+                </Box>
+                <Stack className="names">
+                  <span>The Great Gatsby</span>
+                  <p>F. Scott Fitzgerald</p>
+                </Stack>
+              </Stack>
+              <Stack className="item-price">
+                <span>$17.50</span>
+                <p>Qty: 1</p>
+              </Stack>
+            </Stack>
+            <Stack className="item">
+              <Stack className="item-title">
+                <Box>
+                  <img src="/img/new/lie-to-me.webp" alt=""/>
+                </Box>
+                <Stack className="names">
+                  <span>The Great Gatsby</span>
+                  <p>F. Scott Fitzgerald</p>
+                </Stack>
+              </Stack>
+              <Stack className="item-price">
+                <span>$17.50</span>
+                <p>Qty: 1</p>
+              </Stack>
+            </Stack>
+            
           </Stack>
           <Stack className="sums">
             <Stack className="cost">
               <span>Subtotal (3 items)</span>
-              <p>$ 57.50</p>
+              <p>$ 52.50</p>
             </Stack>
             <Stack className="cost">
               <span>Shipping</span>
@@ -52,7 +83,7 @@ export default function PauseOrders() {
             </Stack>
             <Stack className="total">
               <span>Total</span>
-              <p>$ 57.50</p>
+              <p>$ 52.50</p>
             </Stack>
           </Stack>
         </Stack>

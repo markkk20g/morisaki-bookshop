@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Box, Container, Stack } from "@mui/material";
+import { Box, Button, Container, Stack } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ProductCard from "../../components/common/ProductCard";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import SearchIcon from '@mui/icons-material/Search';
 import "../../../css/products.css";
 import "../../../css/card.css";
 
@@ -49,6 +50,16 @@ export default function Products() {
               <p>Relevance</p>
               <ExpandMoreIcon />
             </Box>
+            <Box>
+              <select>
+                <option>Relevance</option>
+                <option>Newest Arrivals</option>
+                <option>Oldest Arrivals</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Customer Rating</option>
+              </select>
+            </Box>
           </Stack>
         </Stack>
 
@@ -60,8 +71,14 @@ export default function Products() {
             </Stack>
             <Stack className="collect-search">
               <input 
-                type=""
+                type="search"
+                placeholder="Search products..."
+                // value={""}
               />
+              <Button className="search-btn">
+                Search
+                <SearchIcon fontSize="small" />
+              </Button>
             </Stack>
           </Stack>
           <Stack className="main-frame-items">

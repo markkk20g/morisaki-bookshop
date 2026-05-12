@@ -1,5 +1,9 @@
 @import url("https://googleapis.com");
 
+* {
+  box-sizing: border-box !important;
+}
+
 .homepage {
   width: 100%;
   height: auto;
@@ -86,8 +90,7 @@
 
 .bestsellers-frame .section .cards-frame {
   position: relative;
-  /* width: 100%; */
-  width: 1250px;
+  width: 100%;
   height: 578.5px;
   display: flex;
   flex-direction: row;
@@ -95,7 +98,26 @@
   align-items: center;
 }
 
-.bestsellers-frame .section .cards-frame .best-card {
+.bestsellers-frame .section .cards-frame .swiper-best {
+  position: relative;
+  width: 100%;
+  height: 578.5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 20px; */
+}
+
+.section .cards-frame .swiper-best .best-card-slide {
+  position: relative;
+  width: auto;
+  height: auto;
+  display: flex;
+  margin: 10px 0 10px 0px;
+}
+
+.section .cards-frame .swiper-best .best-card-slide .best-card {
   position: relative;
   width: 288px;
   height: 530.5px;
@@ -104,9 +126,14 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 23px;
+  transition: transform 250ms ease-in-out;
 }
 
-.bestsellers-frame .section .cards-frame .best-card .card-frame {
+.section .cards-frame .swiper-best .best-card-slide .best-card:hover {
+  transform: translateY(-10px);
+}
+
+.section .cards-frame .swiper-best .best-card-slide .best-card .card-frame {
   position: relative;
   /* Overlay+Shadow */
   width: 288px;
@@ -120,7 +147,7 @@
   background: rgba(255, 255, 255, 0);
 }
 
-.bestsellers-frame .section .cards-frame .best-card .card-frame img {
+.section .cards-frame .swiper-best .best-card-slide .best-card .card-frame img {
   position: relative;
   /* Overlay+Shadow */
   object-fit: cover;
@@ -131,7 +158,7 @@
   background: rgba(255, 255, 255, 0);
 }
 
-.bestsellers-frame .section .cards-frame .best-card .card-content {
+.section .cards-frame .swiper-best .best-card-slide .best-card .card-content {
   position: relative;
   /* Container */
   width: 288px;
@@ -144,7 +171,13 @@
   padding: 0 30px;
 }
 
-.bestsellers-frame .section .cards-frame .best-card .card-content span {
+.section
+  .cards-frame
+  .swiper-best
+  .best-card-slide
+  .best-card
+  .card-content
+  span {
   position: relative;
   color: rgba(26, 28, 29, 1);
 
@@ -157,7 +190,7 @@
   text-align: left;
 }
 
-.bestsellers-frame .section .cards-frame .best-card .card-content p {
+.section .cards-frame .swiper-best .best-card-slide .best-card .card-content p {
   position: relative;
   color: rgba(95, 94, 94, 1);
 
@@ -383,14 +416,11 @@
   flex-shrink: column;
   box-shadow: 0px 20px 50px -12px rgba(26, 28, 29, 0.06);
   background: rgba(255, 255, 255, 0);
-  transition: 0.25 ease-out;
+  transition: transform 250ms ease-in-out;
 }
 
 .new-arrivals-frame .new-arrivals-section .cards-frame .new-card:hover {
-  position: relative;
-  transition: 0.3 ease-in-out;
-
-  transform: scale(1.03);
+  transform: translateY(-10px);
   box-shadow: 0px 20px 50px -12px rgba(26, 28, 29, 0.26);
 }
 
@@ -399,7 +429,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 217px;
+  width: 227px;
   height: 280px;
 }
 
@@ -509,6 +539,10 @@
   line-height: 16px;
   letter-spacing: 0px;
   text-align: center;
+}
+
+.cards-frame .new-card .new-content .new-footer .butt:hover {
+  background: rgba(226, 226, 228, 0.5);
 }
 
 /**** CUSTOMERS PICKS ****/
