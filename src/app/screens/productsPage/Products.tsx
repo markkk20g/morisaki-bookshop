@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { Box, Button, Container, Stack } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ProductCard from "../../components/common/ProductCard";
@@ -6,10 +6,90 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import "../../../css/products.css";
 import "../../../css/card.css";
+import { createSelector, Dispatch } from "@reduxjs/toolkit";
+import { setProducts } from "./slice";
+import { Product, ProductInquiry } from "../../../libs/types/product";
+import { retrieveProducts } from "./selector";
+import { useDispatch, useSelector } from "react-redux";
+import { ProductCollection } from "../../../libs/enums/product.enum";
+import { useHistory } from "react-router-dom";
+import ProductService from "../../services/ProductService";
 
+/****************************************
+              REDUX SLICE
+*****************************************/
+const actionDispatch = (dispatch: Dispatch) => ({
+  setProducts: (data: Product[]) => dispatch(setProducts(data))
+});
+
+/****************************************
+              REDUX SELECTOR
+*****************************************/
+const productsRetriever = createSelector(
+  retrieveProducts, (products) => ({products})
+);
+
+// interface ProductsProps {
+//   onAdd: (item: CardItem) => void;
+// }
 export default function Products() {
-  const [products, setProducts] = useState<number[]>([1, 2, 3, 4, 5, 6,])
+  const [productsCard, setProductsCard] = useState<number[]>([1, 2, 3, 4, 5, 6,])
 
+  const {setProducts} = actionDispatch(useDispatch());
+  const {products} = useSelector(productsRetriever)
+
+  const [productSearch, setProductSearch] = useState<ProductInquiry>({
+    page: 1,
+    limit: 8,
+    order: 'createdAt',
+    productCollection: ProductCollection.FICTION,
+    search: '',
+  })
+
+  const [searchText, setSearchText] = useState<string>('');
+  const history = useHistory();
+
+  useEffect(() => {
+    const product = new ProductService();
+    product.getProducts(productSearch)
+    .then((data) => setProducts(data))
+    .catch((err) => console.log(err))
+  }, [productSearch]);
+
+  useEffect(() => {
+    if(searchText === "") {
+      productSearch.search = "";
+      setProductSearch({...productSearch})
+    }
+  }, [searchText]);
+
+  /*********** HANDLERS *************/
+
+  const searchCollectionHandler = (collection: ProductCollection) => {
+    productSearch.page = 1;
+    productSearch.productCollection = collection;
+    setProductSearch({...productSearch});
+  };
+
+  const searchOrderHandler = (order: string) => {
+    productSearch.page = 1;
+    productSearch.order = order;
+    setProductSearch({...productSearch})
+  };
+
+  const searchProductHandler = () => {
+    productSearch.search = searchText;
+    setProductSearch({...productSearch})
+  };
+
+  const paginationHandler = (e: ChangeEvent<any>, value: number) => {
+    productSearch.page = value;
+    setProductSearch({...productSearch})
+  };
+
+  const chooseProductHandler = (id: string) => {
+    history.push(`/products/${id}`)
+  }
   return (
     <div className="products-screen-frame">
       <Container className="products-screen">
@@ -73,16 +153,24 @@ export default function Products() {
               <input 
                 type="search"
                 placeholder="Search products..."
-                // value={""}
+                name="singleSearch"
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+                onKeyDown={(e) => {
+                  if(e.key === 'Enter') searchProductHandler()
+                }}
               />
-              <Button className="search-btn">
+              <Button 
+                className="search-btn"
+                onClick={searchProductHandler}
+              >
                 Search
                 <SearchIcon fontSize="small" />
               </Button>
             </Stack>
           </Stack>
           <Stack className="main-frame-items">
-            {products.map((product, index) => {
+            {productsCard.map((product, index) => {
               return <ProductCard key={index} />
             })}
           </Stack>

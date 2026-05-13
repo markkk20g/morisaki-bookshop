@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NewArrivals from "./NewArrivals";
 import DiscoverArticles from "./DiscoverArticles";
 import Bestsellers from "./Bestsellers";
@@ -15,10 +15,46 @@ import "../../../css/home.css";
 import "../../../css/card.css";
 import "../../../css/cards/eventCard.css";
 import "../../../css//statistic.css";
+import { Dispatch } from "@reduxjs/toolkit";
+import { setBestSellers, setNewArrivals, setTrendingNow } from "./slice";
+import { Product } from "../../../libs/types/product";
+import { useDispatch } from "react-redux";
+import ProductService from "../../services/ProductService";
 
 
+/****************************************
+              REDUX SLICE
+*****************************************/
+
+const actionDispatch = (dispatch: Dispatch) => ({
+  setBestSellers: (data: Product[]) => dispatch(setBestSellers(data)),
+  setNewArrivals: (data: Product[]) => dispatch(setNewArrivals(data)),
+  setTrendingNow: (data: Product[]) => dispatch(setTrendingNow(data))
+})
 
 export default function HomePage() {
+  const { setBestSellers, setNewArrivals, setTrendingNow } = actionDispatch(useDispatch());
+
+  useEffect(() => {
+    const product = new ProductService();
+    product.getProducts({
+      page: 1,
+      limit: 6,
+      order: 'productViews',
+    }).then((data) => {setBestSellers(data)}).catch((err) => console.log(err));
+
+    product.getProducts({
+      page: 1,
+      limit: 5,
+      order: 'createdAt',
+    }).then((data) => {setNewArrivals(data)}).catch((err) => console.log(err));
+
+    product.getProducts({
+      page: 1,
+      limit: 3,
+      order: 'productPrice',
+    }).then((data) => {setBestSellers(data)}).catch((err) => console.log(err));
+  }, [])
   return (
     <div className="homepage">
       <Statistic />
