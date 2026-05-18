@@ -4,9 +4,38 @@ import { NavLink } from "react-router-dom";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Topbar from "./Topbar";
+import { useGlobals } from "../../hooks/useGlobals";
 
-export default function HomeNavbar() {
-  const authMember = null;
+interface HomeNavbarProps {
+  cartItems: CartItem[];
+  onAdd: (item: CartItem) => void; 
+  onRemove: (item: CartItem) => void; 
+  onDelete: (item: CartItem) => void; 
+  onDeleteAll: () => void;
+  setSignupOpen: (isOpen: boolean) => void;
+  setLoginOpen: (isOpen: boolean) => void;
+  handleLogoutClick: (e: React.MouseEvent<HTMLElement>) => void;
+  anchorEl: HTMLElement | null;
+  handleCloseLogout: () => void;
+  handleLogoutRequest: () => void;
+}
+
+export default function HomeNavbar(props: HomeNavbarProps) {
+  const { 
+    cartItems, 
+    onAdd, 
+    onRemove, 
+    onDelete, 
+    onDeleteAll, 
+    setSignupOpen, 
+    setLoginOpen,
+    handleLogoutClick,
+    anchorEl, 
+    handleCloseLogout,
+    handleLogoutRequest,
+  } = props;
+
+  const {authMember} = useGlobals();
 
   return (
     <div className="home-navbar">
@@ -75,7 +104,19 @@ export default function HomeNavbar() {
           </Stack>
         </Container>
       </div> */}
-      <Topbar />
+      <Topbar 
+        cartItems={cartItems}
+        onAdd={onAdd}
+        onRemove={onRemove}
+        onDelete={onDelete}
+        onDeleteAll={onDeleteAll}
+        setSignupOpen={setSignupOpen}
+        setLoginOpen={setLoginOpen}
+        anchorEl={anchorEl}
+        handleLogoutClick={handleLogoutClick}
+        handleCloseLogout={handleCloseLogout}
+        handleLogoutRequest={handleLogoutRequest}
+      />
 
       {/* LANDING PAGE BANNER aka Main Content */}
       <div className="header-frame">
@@ -91,8 +132,19 @@ export default function HomeNavbar() {
                 curated selection of contemporary masterpieces and timeless classics.</p>
             </Box>
             <Stack className="header-btns">
-              <a className="header-signup-btn">SIGN UP</a>
-              <a className="header-explore-btn">EXPLORE BOOKS</a>
+              {/* <a className="header-explore-btn">EXPLORE BOOKS</a> */}
+              {/* <a className="header-signup-btn">SIGN UP</a> */}
+              <Button className="header-explore-btn">
+                EXPLORE BOOKS
+              </Button>
+              {!authMember ? (
+                <Button 
+                  className="header-signup-btn"
+                  onClick={() => setSignupOpen(true)}
+                >
+                  SIGN UP
+                </Button>
+              ) : (null)}
             </Stack>
 
             {/* <Stack className="header-info">
