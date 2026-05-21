@@ -5,6 +5,7 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Topbar from "./Topbar";
 import { useGlobals } from "../../hooks/useGlobals";
+import { CartItem } from "../../../libs/types/search";
 
 interface HomeNavbarProps {
   cartItems: CartItem[];

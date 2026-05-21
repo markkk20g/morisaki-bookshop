@@ -6,20 +6,20 @@ import CustomersPicks from "./CustomersPicks";
 import Events from "./Events";
 import Statistic from "./Statistic";
 import Trending from "./Trending";
-
-import 'swiper/css';
-import 'swiper/css/navigation';
+import { Dispatch } from "@reduxjs/toolkit";
+import { setBestSellers, setNewArrivals, setTrendingNow } from "./slice";
+import { Product } from "../../../libs/types/product";
+import { useDispatch } from "react-redux";
+import ProductService from "../../services/ProductService";
+// @ts-ignore
+import 'swiper/css'; // @ts-ignore
+import 'swiper/css/navigation'; // @ts-ignore
 import 'swiper/css/pagination';
 
 import "../../../css/home.css";
 import "../../../css/card.css";
 import "../../../css/cards/eventCard.css";
 import "../../../css//statistic.css";
-import { Dispatch } from "@reduxjs/toolkit";
-import { setBestSellers, setNewArrivals, setTrendingNow } from "./slice";
-import { Product } from "../../../libs/types/product";
-import { useDispatch } from "react-redux";
-import ProductService from "../../services/ProductService";
 
 
 /****************************************

@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import { Fab, Stack, TextField } from "@mui/material";
+import { Box, Button, Fab, Stack, TextField } from "@mui/material";
 import styled from "styled-components";
 import LoginIcon from "@mui/icons-material/Login";
 import { T } from "../../../libs/types/common";
@@ -12,6 +12,8 @@ import { LoginInput, MemberInput } from "../../../libs/types/member";
 import { sweetErrorHandling } from "../../../libs/sweetAlert";
 import { useGlobals } from "../../hooks/useGlobals";
 import MemberService from "../../services/MemberService";
+
+import "../../../css/login-signup.css";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -28,12 +30,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ModalImg = styled.img`
-  width: 62%;
-  height: 100%;
+  // width: auto;
+  height: fit;
   border-radius: 10px;
   background: #000;
-  margin-top: 9px;
-  margin-left: 10px;
+  // margin-top: 9px;
+  // margin: 10px;
+  object-fit: cover;
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
 `;
 
 interface AuthenticationModalProps {
@@ -41,10 +45,19 @@ interface AuthenticationModalProps {
   loginOpen: boolean;
   handleSignupClose: () => void;
   handleLoginClose: () => void;
+  handleSignupOpen: () => void;
+  handleLoginOpen: () => void;
 }
 
 export default function AuthenticationModal(props: AuthenticationModalProps) {
-  const { signupOpen, loginOpen, handleSignupClose, handleLoginClose } = props;
+  const { 
+    signupOpen, 
+    loginOpen, 
+    handleSignupClose, 
+    handleLoginClose, 
+    handleSignupOpen, 
+    handleLoginOpen
+  } = props;
   const classes = useStyles();
 
   const [memberNick, setMemberNick] = useState<string>('');
@@ -145,7 +158,10 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
             direction={"row"}
             sx={{ width: "800px" }}
           >
-            <ModalImg src={"/img/auth.webp"} alt="camera" />
+            <Box className="image-frame">
+              {/* <ModalImg className="img" src={"/icons/logo/morisaki-edited.jpg"} alt="camera" /> */}
+              <img className="img" src={"/icons/logo/morisaki-edite.jpg"} alt="camera"/>
+            </Box>
             <Stack sx={{ marginLeft: "69px", alignItems: "center" }}>
               <h2>Signup Form</h2>
               <TextField
@@ -183,6 +199,8 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
         </Fade>
       </Modal>
 
+      {/*********   LOGIN FORM   **********/}
+      
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -197,20 +215,69 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
       >
         <Fade in={loginOpen}>
           <Stack
-            className={classes.paper}
+            // className={classes.paper}
+            className="login-container"
             direction={"row"}
-            sx={{ width: "700px" }}
+            // sx={{ width: "700px" }}
           >
-            <ModalImg src={"/img/auth.webp"} alt="camera" />
+            <Box className="image-frame">
+              <div className="tent"></div>
+              <ModalImg className="img" src={"/icons/logo/books.jpg"} alt="camera" />
+              {/* <img className="img" src={"/icons/logo/books.jpg"} alt="camera"/> */}
+            </Box>
             <Stack
-              sx={{
-                marginLeft: "65px",
-                marginTop: "25px",
-                alignItems: "center",
-              }}
+              className="login-form"
+              // sx={{
+              //   marginLeft: "65px",
+              //   marginTop: "25px",
+              //   alignItems: "center",
+              // }}
             >
-              <h2>Login Form</h2>
-              <TextField
+              <Stack className="headings">
+                <span>Login</span>
+                <p>Welcome back to Morisaki bookshop</p>
+              </Stack>
+              {/* <h2>Login Form</h2> */}
+              <Stack className="forms">
+                <Stack className="input-data">
+                  <span>username</span>
+                  <input
+                    className="input"
+                    type="text"
+                    onChange={handleUsername}
+                  />
+                </Stack>
+
+                <Stack className="input-data">
+                  <span>password</span>
+                  <input
+                    className="input"
+                    type="password"
+                    onChange={handlePassword}
+                    onKeyDown={handlePasswordKeyDown}
+                  />
+                </Stack>
+
+                <Button className="button" onClick={handleLoginRequest}>Login</Button>
+
+                <Stack className="footer-link">
+                  <span>Don't have an account?</span>
+                  <Button
+                    variant="text"
+                    size="small"
+                    onClick={handleSignupOpen}
+                    sx={{
+                      textTransform: 'none',
+                      minWidth: 'auto',
+                      p: 0,
+                      verticalAlign: 'baseline',
+                    }}
+                  >
+                    Sign up
+                  </Button>
+                </Stack>
+              </Stack>
+              {/* <TextField
                 id="outlined-basic"
                 label="username"
                 variant="outlined"
@@ -233,7 +300,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
               >
                 <LoginIcon sx={{ mr: 1 }} />
                 Login
-              </Fab>
+              </Fab> */}
             </Stack>
           </Stack>
         </Fade>

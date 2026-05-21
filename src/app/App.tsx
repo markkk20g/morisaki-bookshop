@@ -32,6 +32,14 @@ function App() {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   /** HANDLERS **/
+  const handleSignupOpen = () => {
+    setLoginOpen(false);
+    setSignupOpen(true);
+  };
+  const handleLoginOpen = () => {
+    setSignupOpen(false);
+    setLoginOpen(true);
+  };
 
   const handleSignupClose = () => setSignupOpen(false);
   const handleLoginClose = () => setLoginOpen(false);
@@ -107,6 +115,8 @@ function App() {
         loginOpen={loginOpen}
         handleSignupClose={handleSignupClose}
         handleLoginClose={handleLoginClose}
+        handleSignupOpen={handleSignupOpen}
+        handleLoginOpen={handleLoginOpen}
       />
     </div>
   );

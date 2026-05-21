@@ -1,0 +1,196 @@
+.login-container {
+  width: auto;
+  height: 496.5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* gap: 30px; */
+  border-radius: 10px;
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 1);
+}
+
+.login-container .image-frame {
+  position: relative;
+  width: 440px;
+  height: 100%;
+  background: #000;
+  opacity: 90;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container .image-frame .img {
+  position: relative;
+  width: 440px;
+  height: 100%;
+  /* background: #000; */
+  opacity: 60%;
+  cursor: pointer;
+}
+
+.login-container .login-form {
+  /* Modal Box */
+  width: 440px;
+  height: 100%;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.login-container .login-form .headings {
+  width: 440px;
+  height: 124px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 32px;
+
+  background: rgba(243, 244, 245, 1);
+}
+
+.login-container .login-form .headings span {
+  position: relative;
+  color: rgba(0, 0, 0, 1);
+
+  font-family: "Epilogue", sans-serif;
+  font-style: Black;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 36px;
+  letter-spacing: -1.5px;
+  text-align: left;
+}
+
+.login-container .login-form .headings p {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: "Manrope", sans-serif;
+  font-style: Regular;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgba(96, 62, 57, 1);
+}
+
+.login-container .login-form .forms {
+  position: relative;
+  width: 440px;
+  height: 368.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 32px;
+}
+
+.login-container .login-form .forms .input-data {
+  position: relative;
+  width: 384px;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.login-container .login-form .forms .input-data span {
+  position: relative;
+  font-family: "Manrope", sans-serif;
+  font-style: Bold;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 1.2px;
+  text-align: left;
+  text-transform: uppercase;
+  color: rgba(96, 62, 57, 1);
+}
+
+.login-container .login-form .forms .input-data .input {
+  position: relative;
+  width: 380px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 13px 16px 13px 16px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 0px 1px rgba(235, 187, 180, 0.3);
+  background: rgba(255, 255, 255, 1);
+  /* outline: none; */
+  border: none;
+}
+
+.login-container .login-form .forms .input-data .input:focus {
+  border-color: #1976d2;
+}
+
+.login-container .login-form .forms .button {
+  position: relative;
+  /* Login Button */
+  width: 380px;
+  height: 60px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0px 16px 0px;
+  color: #fff;
+  border-radius: 8px;
+  background: linear-gradient(
+    171.09deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(211, 47, 47, 1) 100%
+  );
+}
+
+.login-container .login-form .forms .footer-link {
+  position: relative;
+  width: 380px;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 3px;
+}
+
+.login-container .login-form .forms .footer-link span {
+  position: relative;
+  font-family: "Manrope", sans-serif;
+  font-style: Bold;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: rgba(96, 62, 57, 1);
+}
+
+.login-container .login-form .forms .footer-link a {
+  position: relative;
+  font-family: "Manrope", sans-serif;
+  font-style: Bold;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #bc0100;
+}
