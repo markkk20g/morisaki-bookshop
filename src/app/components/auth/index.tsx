@@ -154,46 +154,67 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
       >
         <Fade in={signupOpen}>
           <Stack
-            className={classes.paper}
+            className="signup-container"
             direction={"row"}
-            sx={{ width: "800px" }}
           >
             <Box className="image-frame">
-              {/* <ModalImg className="img" src={"/icons/logo/morisaki-edited.jpg"} alt="camera" /> */}
-              <img className="img" src={"/icons/logo/morisaki-edite.jpg"} alt="camera"/>
+              <div className="tent"></div>
+              <ModalImg className="img" src={"/icons/logo/books.jpg"} alt="camera" />
             </Box>
-            <Stack sx={{ marginLeft: "69px", alignItems: "center" }}>
-              <h2>Signup Form</h2>
-              <TextField
-                sx={{ marginTop: "7px" }}
-                id="outlined-basic"
-                label="username"
-                variant="outlined"
-                onChange={handleUsername}
-              />
-              <TextField
-                sx={{ my: "17px" }}
-                id="outlined-basic"
-                label="phone number"
-                variant="outlined"
-                onChange={handlePhone}
-              />
-              <TextField
-                id="outlined-basic"
-                label="password"
-                variant="outlined"
-                onChange={handlePassword}
-                onKeyDown={handlePasswordKeyDown}
-              />
-              <Fab
-                sx={{ marginTop: "30px", width: "120px" }}
-                variant="extended"
-                color="primary"
-                onClick={handleSignupRequest}
-              >
-                <LoginIcon sx={{ mr: 1 }} />
-                Signup
-              </Fab>
+            <Stack className="signup-login-form">
+              <Stack className="headings">
+                <span>Sign Up</span>
+                <p>Register now and become member of Morisaki bookshop</p>
+              </Stack>
+              <Stack className="forms">
+                <Stack className="input-data">
+                  <span>username</span>
+                  <input
+                    className="input"
+                    type="text"
+                    placeholder="username"
+                    onChange={handleUsername}
+                  />
+                </Stack>
+                <Stack className="input-data">
+                  <span>phone number</span>
+                  <input
+                    className="input"
+                    type="text"
+                    placeholder="01012345678"
+                    onChange={handlePhone}
+                  />
+                </Stack>
+                <Stack className="input-data">
+                  <span>password</span>
+                  <input
+                    className="input"
+                    type="password"
+                    placeholder="*********"
+                    onChange={handlePassword}
+                    onKeyDown={handlePasswordKeyDown}
+                  />
+                </Stack>
+
+                <Button className="button" onClick={handleSignupRequest}>Sign Up</Button>
+
+                <Stack className="footer-link">
+                  <span>Don't have an account?</span>
+                  <Button
+                    variant="text"
+                    size="small"
+                    onClick={handleLoginOpen}
+                    sx={{
+                      textTransform: 'none',
+                      minWidth: 'auto',
+                      p: 0,
+                      verticalAlign: 'baseline',
+                    }}
+                  >
+                    Sign up
+                  </Button>
+                </Stack>
+              </Stack>
             </Stack>
           </Stack>
         </Fade>
@@ -215,29 +236,18 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
       >
         <Fade in={loginOpen}>
           <Stack
-            // className={classes.paper}
             className="login-container"
             direction={"row"}
-            // sx={{ width: "700px" }}
           >
             <Box className="image-frame">
               <div className="tent"></div>
               <ModalImg className="img" src={"/icons/logo/books.jpg"} alt="camera" />
-              {/* <img className="img" src={"/icons/logo/books.jpg"} alt="camera"/> */}
             </Box>
-            <Stack
-              className="login-form"
-              // sx={{
-              //   marginLeft: "65px",
-              //   marginTop: "25px",
-              //   alignItems: "center",
-              // }}
-            >
+            <Stack className="signup-login-form">
               <Stack className="headings">
                 <span>Login</span>
                 <p>Welcome back to Morisaki bookshop</p>
               </Stack>
-              {/* <h2>Login Form</h2> */}
               <Stack className="forms">
                 <Stack className="input-data">
                   <span>username</span>
@@ -277,30 +287,6 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
                   </Button>
                 </Stack>
               </Stack>
-              {/* <TextField
-                id="outlined-basic"
-                label="username"
-                variant="outlined"
-                sx={{ my: "10px" }}
-                onChange={handleUsername}
-              />
-              <TextField
-                id={"outlined-basic"}
-                label={"password"}
-                variant={"outlined"}
-                type={"password"}
-                onChange={handlePassword}
-                onKeyDown={handlePasswordKeyDown}
-              />
-              <Fab
-                sx={{ marginTop: "27px", width: "120px" }}
-                variant={"extended"}
-                color={"primary"}
-                onClick={handleLoginRequest}
-              >
-                <LoginIcon sx={{ mr: 1 }} />
-                Login
-              </Fab> */}
             </Stack>
           </Stack>
         </Fade>
