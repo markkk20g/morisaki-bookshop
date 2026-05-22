@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { Box, Button, Container, Stack } from "@mui/material";
+import { Box, Button, Container, Pagination, PaginationItem, Stack } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ProductCard from "../../components/common/ProductCard";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
@@ -14,6 +14,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { ProductCollection } from "../../../libs/enums/product.enum";
 import { useHistory } from "react-router-dom";
 import ProductService from "../../services/ProductService";
+import { CartItem } from "../../../libs/types/search";
+import { serverApi } from "../../../libs/config";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 /****************************************
               REDUX SLICE
@@ -29,10 +33,12 @@ const productsRetriever = createSelector(
   retrieveProducts, (products) => ({products})
 );
 
-// interface ProductsProps {
-//   onAdd: (item: CardItem) => void;
-// }
-export default function Products() {
+interface ProductsProps {
+  onAdd: (item: CartItem) => void;
+}
+export default function Products(props: ProductsProps) {
+  const { onAdd } = props;
+
   const [productsCard, setProductsCard] = useState<number[]>([1, 2, 3, 4, 5, 6,])
 
   const {setProducts} = actionDispatch(useDispatch());
@@ -90,6 +96,7 @@ export default function Products() {
   const chooseProductHandler = (id: string) => {
     history.push(`/products/${id}`)
   }
+
   return (
     <div className="products-screen-frame">
       <Container className="products-screen">
@@ -98,30 +105,30 @@ export default function Products() {
             <Box className="category-title">CATEGORIES /
               GENRE</Box>
             <Stack className="category-list">
-              <a className="list-item active">
+              <Button className="list-item active">
                 <p className="category-name">Fiction</p>
                 <p className="category-total">248</p>
-              </a>
-              <a className="list-item">
+              </Button>
+              <Button className="list-item">
                 <p className="category-name">Business & Economics</p>
                 <p className="category-total">78</p>
-              </a>
-              <a className="list-item">
+              </Button>
+              <Button className="list-item">
                 <p className="category-name">Self-help & Improvement</p>
                 <p className="category-total">109</p>
-              </a>
-              <a className="list-item">
+              </Button>
+              <Button className="list-item">
                 <p className="category-name">Technology & Science</p>
                 <p className="category-total">49</p>
-              </a>
-              <a className="list-item">
+              </Button>
+              <Button className="list-item">
                 <p className="category-name">Kids Literature</p>
                 <p className="category-total">46</p>
-              </a>
-              <a className="list-item">
+              </Button>
+              <Button className="list-item">
                 <p className="category-name">Magazines & Journals</p>
                 <p className="category-total">27</p>
-              </a>
+              </Button>
             </Stack>
           </Stack>
           <Stack className="sidebar-sorting">
@@ -170,11 +177,33 @@ export default function Products() {
             </Stack>
           </Stack>
           <Stack className="main-frame-items">
-            {productsCard.map((product, index) => {
+            {products?.length !== 0 ? (
+              products.map((product: Product, index: any) => {
+                const imagePath = `${serverApi}/${product.productImages[0]}`
+                return <ProductCard product={product} onAdd={onAdd} imagePath={imagePath} key={index}/>
+              })
+            ) : (
+              <Box className="no-data">Products are not available!</Box>
+            )}
+            {/* {productsCard.map((product, index) => {
               return <ProductCard key={index} />
-            })}
+            })} */}
           </Stack>
-          <Stack className="main-frame-pagination"></Stack>
+          <Stack className="main-frame-pagination">
+            <Stack spacing={2} className='pagination'>
+            <Pagination
+              count={products.length !== 0 ? productSearch.page + 1 : productSearch.page}
+              color='secondary'
+              renderItem={(item) => (
+                <PaginationItem
+                  slots={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
+                  {...item}
+                />
+              )}
+              onChange={paginationHandler}
+            />
+          </Stack>
+          </Stack>
           <Stack className="main-frame-location">
             <Stack className="location-frame">
               <Stack className="location-info">

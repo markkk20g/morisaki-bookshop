@@ -1,6 +1,6 @@
 .product-card {
   /* Book Card 1 */
-  width: 227.33px;
+  width: 237.33px;
   height: 410.44px;
   display: flex;
   flex-direction: column;
@@ -47,7 +47,7 @@
   /* margin-top: -5px; */
   width: 195.33px;
   height: 265px;
-  object-fit: fill;
+  object-fit: cover;
   border-radius: 8px;
   transition: height 0.5s ease-out;
 }
@@ -59,11 +59,11 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 6px 16px;
-  flex: 1;
+  /* flex: 1; */
 }
 
 .product-card .pro-card-frame .pro-card-content .pro-card-title {
-  width: 100%;
+  width: auto;
   margin-top: 6px;
   margin-bottom: -8px;
   font-family: "Inter", sans-serif;

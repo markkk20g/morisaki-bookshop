@@ -5,9 +5,15 @@ import Products from "./Products";
 import "../../../css/products.css";
 // import "../../../css/card.css";
 import "../../../css/cards/productCard.css";
+import { CartItem } from "../../../libs/types/search";
 
 
-export default function ProductsPage() {
+interface ProductsPageProps {
+  onAdd: (item: CartItem) => void;
+}
+
+export default function ProductsPage(props: ProductsPageProps) {
+  const { onAdd } = props
   const products = useRouteMatch()
   return (
 
@@ -17,7 +23,7 @@ export default function ProductsPage() {
           <ChosenProduct />
         </Route>
         <Route path={`${products.path}`}>
-          <Products />
+          <Products onAdd={onAdd} />
         </Route>
       </Switch>
     </div>

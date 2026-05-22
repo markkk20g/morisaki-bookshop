@@ -93,7 +93,7 @@ function App() {
       }
       <Switch>
         <Route path={'/products'}>
-          <ProductsPage />
+          <ProductsPage onAdd={onAdd} />
         </Route>
         <Route path="/orders">
           <OrdersPage />
