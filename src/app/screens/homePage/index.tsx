@@ -7,7 +7,7 @@ import Events from "./Events";
 import Statistic from "./Statistic";
 import Trending from "./Trending";
 import { Dispatch } from "@reduxjs/toolkit";
-import { setBestSellers, setNewArrivals, setTrendingNow } from "./slice";
+import { setBestSellers, setNewArrivals, setTopUsers, setTrendingNow } from "./slice";
 import { Product } from "../../../libs/types/product";
 import { useDispatch } from "react-redux";
 import ProductService from "../../services/ProductService";
@@ -21,6 +21,9 @@ import "../../../css/card.css";
 import "../../../css/cards/eventCard.css";
 import "../../../css//statistic.css";
 import { CartItem } from "../../../libs/types/search";
+import { Member } from "../../../libs/types/member";
+import MemberService from "../../services/MemberService";
+import { Direction } from "../../../libs/enums/product.enum";
 
 
 /****************************************
@@ -30,7 +33,8 @@ import { CartItem } from "../../../libs/types/search";
 const actionDispatch = (dispatch: Dispatch) => ({
   setBestSellers: (data: Product[]) => dispatch(setBestSellers(data)),
   setNewArrivals: (data: Product[]) => dispatch(setNewArrivals(data)),
-  setTrendingNow: (data: Product[]) => dispatch(setTrendingNow(data))
+  setTrendingNow: (data: Product[]) => dispatch(setTrendingNow(data)),
+  setTopUsers: (data: Member[]) => dispatch(setTopUsers(data)),
 })
 
 interface HomePageProps {
@@ -45,22 +49,31 @@ export default function HomePage(props: HomePageProps) {
     const product = new ProductService();
     product.getProducts({
       page: 1,
-      limit: 6,
+      limit: 11,
       order: 'productViews',
+      direction: 1,
     }).then((data) => {setBestSellers(data)}).catch((err) => console.log(err));
 
     product.getProducts({
       page: 1,
       limit: 5,
       order: 'createdAt',
+      direction: -1,
     }).then((data) => {setNewArrivals(data)}).catch((err) => console.log(err));
 
-    product.getProducts({
-      page: 1,
-      limit: 3,
-      order: 'productPrice',
-    }).then((data) => {setBestSellers(data)}).catch((err) => console.log(err));
-  }, [])
+    // product.getProducts({
+    //   page: 1,
+    //   limit: 3,
+    //   order: 'productPrice',
+    //   direction: Direction.ASC,
+    // }).then((data) => {setBestSellers(data)}).catch((err) => console.log(err));
+
+    const member = new MemberService();
+    member.getTopUsers()
+      .then((data) => {setTopUsers(data)})
+      .catch((err) => console.log(err))
+  }, []);
+
   return (
     <div className="homepage">
       <Statistic />

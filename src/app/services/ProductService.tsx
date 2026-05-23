@@ -11,8 +11,8 @@ class ProductService {
 
   public async getProducts(input: ProductInquiry): Promise<Product[]> {
     try {
-      const { order, page, limit} = input;
-      let url = `${this.path}/product/all?order=${order}&page=${page}&limit=${limit}`;
+      const { order, page, limit, direction } = input;
+      let url = `${this.path}/product/all?order=${order}&page=${page}&limit=${limit}&direction=${direction}`;
       if(input.productCollection) url += `&productCollection=${input.productCollection}`;
       if(input.search) url += `&search=${input.search}`;
 

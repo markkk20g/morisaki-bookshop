@@ -5,6 +5,7 @@ const initialState: HomePageState = {
   bestSellers: [],
   newArrivals: [],
   trendingNow: [],
+  topUsers: [],
 };
 
 const homePageSlice = createSlice({
@@ -20,10 +21,13 @@ const homePageSlice = createSlice({
     setTrendingNow: (state, action) => {
       state.trendingNow = action.payload;
     },
+    setTopUsers: (state, action) => {
+      state.topUsers = action.payload;
+    },
   },
 });
 
-export const { setBestSellers, setNewArrivals, setTrendingNow } =
+export const { setBestSellers, setNewArrivals, setTrendingNow, setTopUsers } =
   homePageSlice.actions;
 
 const HomePageReducer = homePageSlice.reducer;

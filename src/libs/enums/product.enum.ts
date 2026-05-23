@@ -11,3 +11,8 @@ export enum ProductCollection {
   KIDS = "KIDS",
   MAGAZINE = "MAGAZINE",
 }
+
+export enum Direction {
+  ASC = 1,
+  DESC = -1,
+}

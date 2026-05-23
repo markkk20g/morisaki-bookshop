@@ -11,7 +11,7 @@ import { setProducts } from "./slice";
 import { Product, ProductInquiry } from "../../../libs/types/product";
 import { retrieveProducts } from "./selector";
 import { useDispatch, useSelector } from "react-redux";
-import { ProductCollection } from "../../../libs/enums/product.enum";
+import { Direction, ProductCollection } from "../../../libs/enums/product.enum";
 import { useHistory } from "react-router-dom";
 import ProductService from "../../services/ProductService";
 import { CartItem } from "../../../libs/types/search";
@@ -48,6 +48,7 @@ export default function Products(props: ProductsProps) {
     page: 1,
     limit: 8,
     order: 'createdAt',
+    direction: -1,
     productCollection: ProductCollection.FICTION,
     search: '',
   })

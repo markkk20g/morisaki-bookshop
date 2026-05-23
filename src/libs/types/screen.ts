@@ -14,6 +14,7 @@ export interface HomePageState {
   bestSellers: Product[];
   newArrivals: Product[];
   trendingNow: Product[];
+  topUsers: Member[];
 }
 
 /** PRODUCTS PAGE **/

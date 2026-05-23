@@ -16,3 +16,7 @@ export const retrieveTrendingNow = createSelector(
   selectHomePage,
   (HomePage) => HomePage.trendingNow,
 );
+export const retrieveTopUsers = createSelector(
+  selectHomePage,
+  (HomePage) => HomePage.topUsers,
+);
