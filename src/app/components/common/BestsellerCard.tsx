@@ -1,5 +1,6 @@
 import { Box, Container, Stack } from "@mui/material";
 import React from "react";
+import { Product } from "../../../libs/types/product";
 
 // interface BookCardsProps {
 //   title: string;
@@ -7,21 +8,26 @@ import React from "react";
 //   image: string;
 //   price: number;
 // }
+interface BestsellersCardProps {
+  product: Product;
+  imagePath: string;
+  // onAdd: any;
+}
 
-export default function BestsellerCard() {
-  // const { title, author, image, price } = props;
+export default function BestsellerCard(props: BestsellersCardProps) {
+  const { product, imagePath } = props;
 
   return (
     <div className="best-card">
       <div className="card-frame">
-        <img src={"/img/new/buy-then-build.jpg"} alt={""} className="card-image" />
+        <img src={imagePath} alt={""} className="card-image" />
       </div>
       <div className="card-content">
-        <span className="card-title">Buy Then Build</span>
-        <p className="card-author">Walker Daibel</p>
+        <span className="card-title">{product.productName}</span>
+        <p className="card-author">{product.productAuthorName}</p>
 
         <div className="card-footer">
-          <span className="card-price">$22.00</span>
+          <span className="card-price">${product.productPrice}</span>
 
           <button className="card-button">🛒 Add</button>
         </div>

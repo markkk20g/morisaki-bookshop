@@ -51,7 +51,7 @@ export default function HomePage(props: HomePageProps) {
       page: 1,
       limit: 11,
       order: 'productViews',
-      direction: 1,
+      direction: -1,
     }).then((data) => {setBestSellers(data)}).catch((err) => console.log(err));
 
     product.getProducts({

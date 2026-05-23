@@ -9,6 +9,11 @@ import BestsellerCard from "../../components/common/BestsellerCard";
 
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from "swiper/react"
+import { createSelector } from "@reduxjs/toolkit";
+import { retrieveBestSellers } from "./selector";
+import { useSelector } from "react-redux";
+import { Product } from "../../../libs/types/product";
+import { serverApi } from "../../../libs/config";
 
 // Import Swiper styles
 
@@ -23,51 +28,16 @@ import { Swiper, SwiperSlide } from "swiper/react"
 //     <SwiperSlide>Slide 2</SwiperSlide>
 //   </Swiper>
 // );
+const bestsellersRetriever = createSelector(
+  retrieveBestSellers, 
+  (bestsellers) => ({bestsellers})
+)
 
 export default function Bestsellers() {
-  const newArrivals = [
-    {
-      productName: "Attached",
-      imagePath: "/img/new/attached.jpg",
-      author: "Amir Levine",
-      price: 18,
-    },
-    {
-      productName: "Buy Then Build",
-      imagePath: "/img/new/buy-then-build.jpg",
-      author: "Walker Deibel",
-      price: 23,
-    },
-    {
-      productName: "Don't Open Your Eyes",
-      imagePath: "/img/new/dont-open-your-eyes.jpg",
-      author: "Liv Constantine",
-      price: 20,
-    },
-    {
-      productName: "Good To Great",
-      imagePath: "/img/new/good-to-great.jpg",
-      author: "Jim Collins",
-      price: 19,
-    },
-    {
-      productName: "Lie To Me",
-      imagePath: "/img/new/lie-to-me.webp",
-      author: "J.T. Ellison",
-      price: 18,
-    },
-    // {
-    //   productName: "Man's Search For Meaning",
-    //   imagePath: "/img/new/mans-search-for-meaning.jpg",
-    // },
-    // { productName: "Night Owl", imagePath: "/img/new/night-owl.jpg" },
-    // {
-    //   productName: "The Power Of Now",
-    //   imagePath: "/img/new/the-power-of-now.jpg",
-    // },
-  ];
+  const { bestsellers } = useSelector(bestsellersRetriever);
+  const highBestsellers = bestsellers.slice(0, 8);
 
-  const [bestsellers, setBestsellers] = useState<number[]>([1, 2, 3, 4, 5, 6,])
+  // const [bestsellers, setBestsellers] = useState<number[]>([1, 2, 3, 4, 5, 6,])
   return (
     <div className="bestsellers-frame">
       <Container>
@@ -108,11 +78,12 @@ export default function Bestsellers() {
               }}
               pagination={{ el: '.view-more-btn', clickable: true }}
             >
-              {bestsellers.length !== 0 ? (
-                bestsellers.map((ele, index) => {
+              {highBestsellers.length !== 0 ? (
+                highBestsellers.map((product: Product, index) => {
+                  const imagePath = `${serverApi}/${product.productImages[0]}`
                   return (
                     <SwiperSlide className="best-card-slide" key={index}>
-                      <BestsellerCard />
+                      <BestsellerCard imagePath={imagePath} product={product}/>
                     </SwiperSlide>
                     
                   );
