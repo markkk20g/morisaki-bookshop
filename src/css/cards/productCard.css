@@ -13,8 +13,33 @@
   transition: transform 250ms ease-in-out;
 }
 
+.product-card .product-views {
+  position: absolute;
+  width: auto;
+  height: auto;
+  right: 25px;
+  bottom: 110px;
+  transition: transform 150ms ease-in-out;
+  background: rgb(255, 255, 255);
+  color: rgba(95, 94, 94, 1);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 10px;
+  gap: 4px;
+  border-radius: 10px;
+  box-shadow: 0px 40px 60px -20px rgba(26, 28, 29, 0.06);
+  z-index: 99;
+  visibility: hidden;
+}
+
 .product-card:hover {
   transform: translateY(-10px);
+}
+
+.product-card:hover .product-views {
+  visibility: visible;
 }
 
 .pro-card-frame {
@@ -41,6 +66,7 @@
   box-shadow:
     0px 20px 25px -5px rgba(0, 0, 0, 0.1),
     0px 8px 10px -6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .pro-card-frame .pro-card-image .pro-image {
@@ -77,7 +103,13 @@
 }
 
 .product-card .pro-card-frame .pro-card-content .pro-card-author {
-  width: 100%;
+  width: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-top: 6px;
   font-family: "Inter", sans-serif;
   font-style: Regular;

@@ -39,6 +39,21 @@ class ProductService {
       throw err;
     }
   }
+
+  public async getProductCounts(): Promise<any> {
+  try {
+    const url = `${this.path}/product/all/count`;
+
+    const result = await axios.get(url)
+    console.log('getProductCounts:', result)
+
+    return result.data
+  } catch(err) {
+    console.log('Error, getProductCounts:', err);
+    throw err;
+  }
 }
+}
+
 
 export default ProductService

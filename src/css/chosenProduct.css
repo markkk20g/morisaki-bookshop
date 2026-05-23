@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0px 32px 0px 32px;
+  padding: 0px 32px 64px 32px;
 }
 
 .chosen-pro-screen .chosen-pro-container .left {
@@ -40,8 +40,9 @@
 .chosen-pro-screen .chosen-pro-container .left .img-frame {
   /* Left: Book Cover Canvas */
   position: relative;
-  width: 340px;
-  height: fit-content;
+  width: 370px;
+  height: auto;
+  object-fit: cover;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -56,8 +57,9 @@
   position: relative;
   /* Book Cover */
   border-radius: 12px;
-  width: 340px;
-  height: fit-content;
+  width: 370px;
+  height: 535px;
+  object-fit: cover;
 }
 
 .chosen-pro-screen .chosen-pro-container .left .category {
@@ -142,6 +144,7 @@
 .chosen-pro-screen .chosen-pro-container .right .title {
   position: relative;
   /* Heading 1:margin */
+  height: auto;
   width: 100%;
   margin-top: 40px;
   /* height: 167px; */
@@ -157,7 +160,7 @@
   font-style: Regular;
   font-size: 72px;
   font-weight: 400;
-  line-height: 16px;
+  line-height: normal;
   letter-spacing: 1.2px;
   text-align: left;
 }
@@ -314,6 +317,14 @@
   box-shadow:
     0px 20px 25px -5px rgba(188, 1, 0, 0.2),
     0px 8px 10px -6px rgba(188, 1, 0, 0.2);
+  transition: transform 250ms ease-in-out;
+}
+
+.chosen-pro-container .right .main-content .type .price:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0px 20px 25px -5px rgba(188, 1, 0, 0.3),
+    0px 8px 10px -6px rgba(188, 1, 0, 0.3);
 }
 
 .chosen-pro-container .right .main-content .type span {

@@ -103,6 +103,7 @@
 }
 
 .products-screen .sidebar-filter .sidebar-category .category-list .list-item {
+  position: relative;
   /* Item → Link */
   width: 162.67px;
   height: 60px;
@@ -124,6 +125,7 @@
   .category-name {
   color: rgba(188, 1, 0, 1);
   font-weight: 600;
+  text-transform: none;
 }
 
 .products-screen
@@ -137,9 +139,11 @@
 }
 
 .sidebar-filter .sidebar-category .category-list .list-item .category-name {
+  position: relative;
   /* Text */
+  margin: 0px;
   padding: 0px;
-  width: 84px;
+  width: 115px;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -158,8 +162,10 @@
 }
 
 .sidebar-filter .sidebar-category .category-list .list-item .category-total {
+  position: absolute;
+  right: 0;
   /* Background */
-  width: 39.3px;
+  width: 36px;
   height: auto;
   /* Auto layout */
   display: flex;

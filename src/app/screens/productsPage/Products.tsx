@@ -18,6 +18,7 @@ import { CartItem } from "../../../libs/types/search";
 import { serverApi } from "../../../libs/config";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { T } from "../../../libs/types/common";
 
 /****************************************
               REDUX SLICE
@@ -36,10 +37,10 @@ const productsRetriever = createSelector(
 interface ProductsProps {
   onAdd: (item: CartItem) => void;
 }
+
+
 export default function Products(props: ProductsProps) {
   const { onAdd } = props;
-
-  const [productsCard, setProductsCard] = useState<number[]>([1, 2, 3, 4, 5, 6,])
 
   const {setProducts} = actionDispatch(useDispatch());
   const {products} = useSelector(productsRetriever)
@@ -53,6 +54,7 @@ export default function Products(props: ProductsProps) {
     search: '',
   })
 
+  const [counts, setCounts] = useState<any>({});
   const [searchText, setSearchText] = useState<string>('');
   const history = useHistory();
 
@@ -69,6 +71,18 @@ export default function Products(props: ProductsProps) {
       setProductSearch({...productSearch})
     }
   }, [searchText]);
+
+  useEffect(() => {
+    const product = new ProductService();
+    product.getProductCounts()
+      .then((data) => {
+        const total: T = {};
+        data.map((ele: any) => total[ele?._id] = ele.count);
+
+        setCounts(total)
+      })
+      .catch((err) => console.log(err))
+  }, [])
 
   /*********** HANDLERS *************/
 
@@ -106,29 +120,53 @@ export default function Products(props: ProductsProps) {
             <Box className="category-title">CATEGORIES /
               GENRE</Box>
             <Stack className="category-list">
-              <Button className="list-item active">
+              <Button 
+                className={`list-item ${productSearch.productCollection === ProductCollection.FICTION 
+                    ? 'active' : ''}`}
+                onClick={() => searchCollectionHandler(ProductCollection.FICTION)}
+              >
                 <p className="category-name">Fiction</p>
-                <p className="category-total">248</p>
+                <p className="category-total">{counts.FICTION}</p>
               </Button>
-              <Button className="list-item">
+              <Button 
+                className={`list-item ${productSearch.productCollection === ProductCollection.BUSINESS 
+                    ? 'active' : ''}`}
+                onClick={() => searchCollectionHandler(ProductCollection.BUSINESS)}
+              >
                 <p className="category-name">Business & Economics</p>
-                <p className="category-total">78</p>
+                <p className="category-total">{counts.BUSINESS}</p>
               </Button>
-              <Button className="list-item">
+              <Button 
+                className={`list-item ${productSearch.productCollection === ProductCollection.SELF_HELP 
+                    ? 'active' : ''}`}
+                onClick={() => searchCollectionHandler(ProductCollection.SELF_HELP)}
+              >
                 <p className="category-name">Self-help & Improvement</p>
-                <p className="category-total">109</p>
+                <p className="category-total">{counts.SELF_HELP}</p>
               </Button>
-              <Button className="list-item">
+              <Button 
+                className={`list-item ${productSearch.productCollection === ProductCollection.TECHNOLOGY 
+                    ? 'active' : ''}`}
+                onClick={() => searchCollectionHandler(ProductCollection.TECHNOLOGY)}
+              >
                 <p className="category-name">Technology & Science</p>
-                <p className="category-total">49</p>
+                <p className="category-total">{counts.TECHNOLOGY}</p>
               </Button>
-              <Button className="list-item">
+              <Button 
+                className={`list-item ${productSearch.productCollection === ProductCollection.KIDS 
+                    ? 'active' : ''}`}
+                onClick={() => searchCollectionHandler(ProductCollection.KIDS)}
+              >
                 <p className="category-name">Kids Literature</p>
-                <p className="category-total">46</p>
+                <p className="category-total">{counts.KIDS}</p>
               </Button>
-              <Button className="list-item">
+              <Button 
+                className={`list-item ${productSearch.productCollection === ProductCollection.MAGAZINE 
+                    ? 'active' : ''}`}
+                onClick={() => searchCollectionHandler(ProductCollection.MAGAZINE)}
+              >
                 <p className="category-name">Magazines & Journals</p>
-                <p className="category-total">27</p>
+                <p className="category-total">{counts.MAGAZINE}</p>
               </Button>
             </Stack>
           </Stack>
@@ -181,7 +219,15 @@ export default function Products(props: ProductsProps) {
             {products?.length !== 0 ? (
               products.map((product: Product, index: any) => {
                 const imagePath = `${serverApi}/${product.productImages[0]}`
-                return <ProductCard product={product} onAdd={onAdd} imagePath={imagePath} key={index}/>
+                return (
+                  <ProductCard 
+                    product={product} 
+                    onAdd={onAdd} 
+                    imagePath={imagePath} 
+                    key={index}
+                    chooseProductHandler={chooseProductHandler}
+                  />
+                )
               })
             ) : (
               <Box className="no-data">Products are not available!</Box>
