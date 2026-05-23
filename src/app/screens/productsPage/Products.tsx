@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import { Box, Button, Container, Pagination, PaginationItem, Stack } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ProductCard from "../../components/common/ProductCard";
@@ -56,6 +56,8 @@ export default function Products(props: ProductsProps) {
 
   const [counts, setCounts] = useState<any>({});
   const [searchText, setSearchText] = useState<string>('');
+  const [openMap, setOpenMap] = useState<boolean>(false);
+  const mapRef = useRef<HTMLElement | null>(null);
   const history = useHistory();
 
   useEffect(() => {
@@ -83,6 +85,20 @@ export default function Products(props: ProductsProps) {
       })
       .catch((err) => console.log(err))
   }, [])
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (mapRef.current && !mapRef.current.contains(e.target as Node)) {
+        setOpenMap(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   /*********** HANDLERS *************/
 
@@ -312,14 +328,26 @@ export default function Products(props: ProductsProps) {
                     <div className="icon"><LocationOnOutlinedIcon /></div>
                     <Stack className="address-txt">
                       <span>The Central Atrium</span>
-                      <p>422 Literature Lane, Manhattan, NY</p>
+                      <p>41 Perry St, New York, NY 10014</p>
+                    </Stack>
+                    <Stack className="map-wrap">
+                      <p 
+                        className="map-link"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          setOpenMap(true)
+                        }}
+                      >
+                        See on map
+                      </p>
+                      
                     </Stack>
                   </Stack>
                   <Stack className="address1">
                     <div className="icon"><LocationOnOutlinedIcon /></div>
                     <Stack className="address-txt">
                       <span>The Central Atrium</span>
-                      <p>422 Literature Lane, Manhattan, NY</p>
+                      <p>58 Warren St, New York, NY 10007</p>
                     </Stack>
                   </Stack>
                 </Stack>
@@ -335,7 +363,20 @@ export default function Products(props: ProductsProps) {
                 </div>
               </Stack>
             </Stack>
+            
           </Stack>
+          {openMap && (
+            <Box className="map-frame" ref={mapRef}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12096.561971439389!2d-74.02826521284179!3d40.7149236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a1f282d9f6d%3A0xcbc9d2953228f5c8!2sMysterious%20Book%20Shop!5e0!3m2!1sen!2skr!4v1779568168895!5m2!1sen!2skr" 
+                width="600px" 
+                height="300px" 
+                style={{border: "0"}} 
+                loading="lazy" 
+                referrerPolicy='no-referrer-when-downgrade'
+              ></iframe>
+            </Box>
+          )}
         </Stack>
 
       </Container>
