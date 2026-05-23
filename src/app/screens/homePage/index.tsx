@@ -20,6 +20,7 @@ import "../../../css/home.css";
 import "../../../css/card.css";
 import "../../../css/cards/eventCard.css";
 import "../../../css//statistic.css";
+import { CartItem } from "../../../libs/types/search";
 
 
 /****************************************
@@ -32,7 +33,12 @@ const actionDispatch = (dispatch: Dispatch) => ({
   setTrendingNow: (data: Product[]) => dispatch(setTrendingNow(data))
 })
 
-export default function HomePage() {
+interface HomePageProps {
+  onAdd: (item: CartItem) => void;
+}
+
+export default function HomePage(props: HomePageProps) {
+  const { onAdd } = props;
   const { setBestSellers, setNewArrivals, setTrendingNow } = actionDispatch(useDispatch());
 
   useEffect(() => {
@@ -59,9 +65,9 @@ export default function HomePage() {
     <div className="homepage">
       <Statistic />
       <Bestsellers />
-      <NewArrivals />
-      <DiscoverArticles />
-      <CustomersPicks />
+      <NewArrivals onAdd={onAdd} />
+      {/* <DiscoverArticles /> */}
+      {/* <CustomersPicks /> */}
       <Trending />
       <Events />
     </div>

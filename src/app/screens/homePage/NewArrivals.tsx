@@ -16,9 +16,24 @@ import CardCover from "@mui/joy/CardCover";
 import BookCard from "../../components/common/Card";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import NewArrivalCard from "../../components/common/NewArrivalsCard";
+import { createSelector } from "@reduxjs/toolkit";
+import { retrieveNewArrivals } from "./selector";
+import { useSelector } from "react-redux";
+import { Product } from "../../../libs/types/product";
+import { serverApi } from "../../../libs/config";
+import { CartItem } from "../../../libs/types/search";
 
+interface NewArrivalsProps {
+  onAdd: (item: CartItem) => void;
+}
 
-export default function NewArrivals() {
+const newArrivalsRetriever = createSelector(
+  retrieveNewArrivals, 
+  (newArrivals) => ({newArrivals})
+)
+
+export default function NewArrivals(props: NewArrivalsProps) {
+  const { onAdd } = props;
   // const newArrivals = [
   //   {
   //     productName: "Attached",
@@ -60,8 +75,8 @@ export default function NewArrivals() {
   //   //   imagePath: "/img/new/the-power-of-now.jpg",
   //   // },
   // ];
-
-  const [newArrivals, setNewArrivalss] = useState<number[]>([1, 2, 3, 4, 5,]);
+  const { newArrivals } = useSelector(newArrivalsRetriever);
+  // const [newArrivals, setNewArrivalss] = useState<number[]>([1, 2, 3, 4, 5,]);
   return (
     <div className="new-arrivals-frame">
       <Container>
@@ -72,6 +87,7 @@ export default function NewArrivals() {
               <p>Fresh from the press, curated for the modern intellectual.</p>
             </Box>
             <Box className="view-more-btn">
+              {/* TODO: REDIRECT TO PRODUCTS PAGE */}
               <a href="/" className="butt">
                 <span>
                   VIEW MORE
@@ -85,20 +101,10 @@ export default function NewArrivals() {
           // sx={{ width: "165px", height: "225px" }}
           >
             {newArrivals.length !== 0 ? (
-              newArrivals.map((ele, index) => {
+              newArrivals.map((product: Product, index) => {
+                const imagePath = `${serverApi}/${product.productImages[0]}`
                 return (
-                  // <Stack className="card">
-                  //   <Box sx={{ bgcolor: "white", borderRadius: "md" }}>
-                  //     <img src={ele.imagePath} />
-                  //   </Box>
-                  //   <Stack className="card-info">
-                  //     <Box>{ele.productName}</Box>
-                  //     <Box>John Keyhan</Box>
-                  //     <Box>$29</Box>
-                  //     <Box>$29</Box>
-                  //   </Stack>
-                  // </Stack>
-                  <NewArrivalCard key={index}/>
+                  <NewArrivalCard onAdd={onAdd} product={product} imagePath={imagePath} key={index}/>
                 );
               })
             ) : (
