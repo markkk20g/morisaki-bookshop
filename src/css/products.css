@@ -189,6 +189,7 @@
   text-align: left;
 }
 
+/*******   SORTING LOGIC START   *******/
 .sidebar-filter .sidebar-sorting {
   /* Sort By */
   position: relative;
@@ -203,18 +204,30 @@
 }
 
 .sidebar-filter .sidebar-sorting .sorting-tool {
-  /* Options */
+  position: relative;
+  cursor: pointer;
   width: 162.67px;
   height: 48px;
-  /* Auto layout */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   padding: 12px 16px 12px 16px;
-
+  border: none;
   border-radius: 8px;
   background: rgba(243, 243, 245, 1);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='gray' viewBox='0 0 16 16'%3E%3Cpath d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  /* THIS moves arrow left */
+  background-position: right 15px center;
+  background-size: 14px;
+}
+
+.sidebar-filter .sidebar-sorting .sorting-tool:focus {
+  outline: none;
 }
 
 .sidebar-filter .sidebar-sorting .sorting-tool p {

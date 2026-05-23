@@ -92,9 +92,50 @@ export default function Products(props: ProductsProps) {
     setProductSearch({...productSearch});
   };
 
-  const searchOrderHandler = (order: string) => {
+  // const searchOrderHandler = (order: string) => {
+  //   productSearch.page = 1;
+  //   productSearch.order = order;
+  //   setProductSearch({...productSearch})
+  // };
+
+  const searchOrderHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     productSearch.page = 1;
+    const value = e.target.value;
+
+    let order: string = '';
+    let direction: number = 1;
+
+    switch(value) {
+
+      case 'relevance': 
+        order = 'productViews';
+        direction = -1;
+        break;
+      
+      case 'newest':
+        order = 'createdAt';
+        direction = -1;
+        break;
+
+      case 'oldest':
+        order = 'createdAt';
+        direction = 1;
+        break;
+
+      case 'lowest':
+        order = 'productPrice';
+        direction = 1;
+        break;
+        
+      case 'highest':
+        order = 'productPrice';
+        direction = -1;
+        break;
+    }
+    
     productSearch.order = order;
+    productSearch.direction = direction;
+
     setProductSearch({...productSearch})
   };
 
@@ -111,6 +152,8 @@ export default function Products(props: ProductsProps) {
   const chooseProductHandler = (id: string) => {
     history.push(`/products/${id}`)
   }
+
+  
 
   return (
     <div className="products-screen-frame">
@@ -172,18 +215,20 @@ export default function Products(props: ProductsProps) {
           </Stack>
           <Stack className="sidebar-sorting">
             <Box className="category-title">SORTED BY</Box>
-            <Box className="sorting-tool" flexDirection={"row"}>
+            {/* <Box className="sorting-tool" flexDirection={"row"}>
               <p>Relevance</p>
               <ExpandMoreIcon />
-            </Box>
+            </Box> */}
             <Box>
-              <select>
-                <option>Relevance</option>
-                <option>Newest Arrivals</option>
-                <option>Oldest Arrivals</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
-                <option>Customer Rating</option>
+              <select 
+                className="sorting-tool"
+                onChange={searchOrderHandler}
+              >
+                <option value={'relevance'}>Relevance</option>
+                <option value={'newest'}>Newest Arrivals</option>
+                <option value={'oldest'}>Oldest Arrivals</option>
+                <option value={'lowest'}>Price: Low to High</option>
+                <option value={'highest'}>Price: High to Low</option>
               </select>
             </Box>
           </Stack>
