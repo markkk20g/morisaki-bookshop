@@ -118,10 +118,11 @@ export default function Basket(props: BasketProps) {
               <div>Cart is empty!</div>
             ) : (
               <Stack flexDirection={'row'}>
-                <div>Cart Products:</div>
+                <div style={{color:'#1c1d1c'}}>
+                  Cart Products:
+                </div>
                 <DeleteForeverIcon 
-                  sx={{ml: '5px', cursor: 'pointer'}}
-                  color={"primary"} 
+                  sx={{ml: '5px', cursor: 'pointer', color:'#1c1d1c'}}
                   onClick={() => onDeleteAll()}
                 />
               </Stack>
@@ -137,6 +138,7 @@ export default function Basket(props: BasketProps) {
                     <div className={"cancel-btn"}>
                       <CancelIcon 
                         color={"primary"} 
+                        sx={{color: '#e61818', mt: '-1.5px'}}
                         onClick={() => onDelete(item)}
                       />
                     </div>
@@ -144,11 +146,12 @@ export default function Basket(props: BasketProps) {
                     <span className={"product-name"}>{item.name}</span>
                     <p className={"product-price"}>${item.price} x {item.quantity}</p>
                     <Box sx={{ minWidth: 120 }}>
-                      <div className="col-2">
+                      <div className="col-2 plusMinus">
                         <button 
                           className="remove"
                           onClick={() => onRemove(item)}
-                        >-</button>{" "}
+                        >-</button>
+                        <div className="divider"></div>
                         <button 
                           className="add" 
                           onClick={() => onAdd(item)}
@@ -172,7 +175,7 @@ export default function Basket(props: BasketProps) {
               Order
             </Button>
           </Box>
-          ) : ('')};
+          ) : ('')}
         </Stack>
       </Menu>
     </Box>

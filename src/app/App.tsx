@@ -1,9 +1,4 @@
 import React, { useState } from "react";
-import "../css/index.css";
-import "../css/topbar.css";
-import "../css/navbar.css";
-import "../css/footer.css";
-
 import Footer from "./components/footer";
 import HomeNavbar from "./components/headers/HomeNavbar";
 import HomePage from "./screens/homePage";
@@ -19,6 +14,13 @@ import { Messages } from "../libs/config";
 import { useGlobals } from "./hooks/useGlobals";
 import useBasket from "./hooks/useBasket";
 import AuthenticationModal from "./components/auth";
+
+import "../css/index.css";
+import "../css/topbar.css";
+import "../css/navbar.css";
+import "../css/footer.css";
+import "../css/basket.css";
+
 
 function App() {
   const location = useLocation()

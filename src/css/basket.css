@@ -1,0 +1,195 @@
+.basket-frame {
+  position: relative;
+  padding: 10px 4px 0px 4px;
+  width: 450px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 85, 188, 0.05) 0%,
+    rgba(188, 1, 0, 0) 100%
+  );
+  border-radius: 12px;
+}
+
+.basket-frame .all-check-box {
+  padding: 0px 6px;
+  width: 100%;
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #ffdad4;
+}
+
+.basket-frame .orders-main-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.basket-frame .orders-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  gap: 10px;
+}
+
+.basket-frame .orders-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.basket-frame .orders-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+}
+
+.basket-frame .basket-info-box {
+  position: relative;
+  margin-top: 6px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.basket-info-box .product-img {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.basket-info-box .product-name {
+  margin-left: 11px;
+  width: 195px;
+  color: rgba(11, 28, 48, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Medium;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.basket-info-box .product-price {
+  width: auto;
+  margin: 0 15px 0 0;
+  /* color: rgba(11, 28, 48, 1); */
+  font-family: "Inter", sans-serif;
+  font-style: Bold;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #bc0100;
+}
+
+.basket-info-box .plusMinus {
+  position: relative;
+  width: 60px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2px;
+  border-radius: 16px;
+  background: #f3f3f5;
+}
+
+.basket-info-box .plusMinus .divider {
+  position: absolute;
+  right: 29px;
+  /* Background */
+  width: 1px;
+  height: 16px;
+  border-radius: 9999px;
+  background: #aaaaaa90;
+  z-index: 99;
+}
+
+.basket-info-box .plusMinus .remove {
+  position: relative;
+  border: none;
+  outline: none;
+  background: none;
+  width: 30px;
+  height: 100%;
+  font-size: 15px;
+}
+
+.basket-info-box .plusMinus .remove:hover {
+  background: #cecece;
+  border-radius: 16px 0 0 16px;
+}
+
+.basket-info-box .plusMinus .add {
+  position: relative;
+  border: none;
+  outline: none;
+  background: none;
+  width: 28px;
+  height: 100%;
+}
+
+.basket-info-box .plusMinus .add:hover {
+  background: #cecece;
+  border-radius: 0 16px 16px 0;
+}
+
+.basket-info-box
+  .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  padding: 6.5px 14px;
+}
+
+.basket-info-box .css-ece9u5 {
+  min-width: 72px;
+}
+
+.basket-frame .cancel-btn {
+  position: absolute;
+  top: 33%;
+  right: 2%;
+  cursor: pointer;
+}
+
+.basket-frame .basket-order {
+  margin-top: 10px;
+  width: 100%;
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top: 1px solid rgba(187, 202, 191, 0.4);
+}
+
+.basket-order .price {
+  width: 200px;
+  display: flex;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+
+/* .basket-frame .orders-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+} */
