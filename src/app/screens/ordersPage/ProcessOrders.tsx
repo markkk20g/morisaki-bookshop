@@ -9,7 +9,13 @@ import TabPanel from '@mui/lab/TabPanel';
 import "../../../css/card.css";
 import "../../../css/orders.css";
 
-export default function ProcessOrders() {
+interface ProcessOrdersProps {
+  setValue: (input: string) => void;
+}
+
+export default function ProcessOrders(props: ProcessOrdersProps) {
+  const { setValue } = props;
+  
   return (
     <TabPanel value="2" sx={{padding: '0px'}}>
       <Stack className="content-card">

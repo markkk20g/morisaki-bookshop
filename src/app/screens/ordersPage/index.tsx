@@ -1,6 +1,6 @@
 // import React from "react";
 import { Box, Button, Container, Stack } from "@mui/material";
-import * as React from 'react';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
@@ -11,13 +11,61 @@ import ProcessOrders from "./ProcessOrders";
 import FinishedOrders from "./FInishedOrders";
 import "../../../css/card.css";
 import "../../../css/orders.css";
+import { Dispatch } from "@reduxjs/toolkit";
+import { Order, OrderInquery } from "../../../libs/types/order";
+import { setFinishedOrders, setPausedOrders, setProcessOrders } from "./slice";
+import { useDispatch } from "react-redux";
+import { useGlobals } from "../../hooks/useGlobals";
+import { useHistory } from "react-router-dom";
+import { OrderStatus } from "../../../libs/enums/order.enum";
+import OrderService from "../../services/OrderService";
+import { serverApi } from "../../../libs/config";
+
+/****************************************
+              REDUX SLICE
+*****************************************/
+const actionDispatch = (dispatch: Dispatch) => ({
+  setPausedOrders: (data: Order[]) => dispatch(setPausedOrders(data)),
+  setProcessOrders: (data: Order[]) => dispatch(setProcessOrders(data)),
+  setFinishedOrders: (data: Order[]) => dispatch(setFinishedOrders(data)),
+});
 
 export default function OrdersPage() {
-  const [value, setValue] = React.useState('1');
+  const { setPausedOrders, setProcessOrders, setFinishedOrders } = actionDispatch(useDispatch());
+  const { authMember, orderBuilder } = useGlobals();
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const [value, setValue] = useState('1');
+  const history = useHistory();
+
+  const [orderInquiry, setOrderInquiry] = useState<OrderInquery>({
+    page: 1,
+    limit: 5,
+    orderStatus: OrderStatus.PAUSE,
+  });
+
+  useEffect(() => {
+    const order = new OrderService();
+
+    order.getMyOrders({...orderInquiry, orderStatus: OrderStatus.PAUSE})
+      .then((data) => setPausedOrders(data))
+      .catch((err) => console.log(err));
+
+    order.getMyOrders({...orderInquiry, orderStatus: OrderStatus.PROCESS})
+      .then((data) => setProcessOrders(data))
+      .catch((err) => console.log(err));
+
+    order.getMyOrders({...orderInquiry, orderStatus: OrderStatus.FINISH})
+      .then((data) => setFinishedOrders(data))
+      .catch((err) => console.log(err));
+  }, [orderInquiry, orderBuilder])
+
+  /*********** HANDLERS *************/
+
+  const handleChange = (event: SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
+
+  if(!authMember) history.push('/');
 
   return (
     <div className="orders-page">
@@ -27,10 +75,16 @@ export default function OrdersPage() {
             <div className="overlay"></div>
             <Stack className="user-card">
               <div className="avatar">
-                <img src="/img/avatar.jpg" alt=""/>
+                <img 
+                  src={authMember?.memberImage 
+                  ? `${serverApi}/${authMember.memberImage}` 
+                  : "/img/avatar.jpg"} alt="user image"
+                />
               </div>
-              <span>Alex Walker</span>
-              <p>Manhattan, NY</p>
+              <span>{authMember?.memberNick}</span>
+              <p>
+                {authMember?.memberAddress ? authMember.memberAddress : "no address given yet"}
+              </p>
             </Stack>
           </Stack>
           <Stack className="payment">
@@ -116,8 +170,8 @@ export default function OrdersPage() {
                   </TabList>
                 </Box>
                 <Stack className="box-content">
-                  <PauseOrders />
-                  <ProcessOrders />
+                  <PauseOrders setValue={setValue} />
+                  <ProcessOrders setValue={setValue} />
                   <FinishedOrders />
                 </Stack>
               </TabContext>

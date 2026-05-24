@@ -9,7 +9,13 @@ import TabPanel from '@mui/lab/TabPanel';
 import "../../../css/card.css";
 import "../../../css/orders.css";
 
-export default function PauseOrders() {
+interface PausedOrdersProps {
+  setValue: (input: string) => void;
+}
+
+export default function PauseOrders(props: PausedOrdersProps) {
+  const { setValue } = props; 
+
   return (
     <TabPanel value="1" sx={{padding: '0px'}}>
       <Stack className="content-card">
