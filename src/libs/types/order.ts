@@ -20,6 +20,7 @@ export interface OrderItem {
 
 export interface Order {
   _id: string;
+  orderNumber: string;
   orderTotal: number;
   orderDelivery: number;
   orderStatus: OrderStatus;
