@@ -56,7 +56,7 @@ export default function Products(props: ProductsProps) {
 
   const [counts, setCounts] = useState<any>({});
   const [searchText, setSearchText] = useState<string>('');
-  const [openMap, setOpenMap] = useState<boolean>(false);
+  const [openMap, setOpenMap] = useState<number | null>(null);
   const mapRef = useRef<HTMLElement | null>(null);
   const history = useHistory();
 
@@ -89,7 +89,7 @@ export default function Products(props: ProductsProps) {
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (mapRef.current && !mapRef.current.contains(e.target as Node)) {
-        setOpenMap(false);
+        setOpenMap(null);
       }
     }
 
@@ -327,28 +327,40 @@ export default function Products(props: ProductsProps) {
                   <Stack className="address1">
                     <div className="icon"><LocationOnOutlinedIcon /></div>
                     <Stack className="address-txt">
-                      <span>The Central Atrium</span>
-                      <p>41 Perry St, New York, NY 10014</p>
+                      <span>Manhattan branch</span>
+                      <p>58 Warren St, New York, NY 10007</p>
                     </Stack>
-                    <Stack className="map-wrap">
+                    <Box className="map-wrap">
                       <p 
                         className="map-link"
                         onClick={(e) => {
                           e.stopPropagation()
-                          setOpenMap(true)
+                          setOpenMap(1)
                         }}
                       >
                         See on map
                       </p>
                       
-                    </Stack>
+                    </Box>
                   </Stack>
                   <Stack className="address1">
                     <div className="icon"><LocationOnOutlinedIcon /></div>
                     <Stack className="address-txt">
-                      <span>The Central Atrium</span>
-                      <p>58 Warren St, New York, NY 10007</p>
+                      <span>Brooklyn branch</span>
+                      <p>143 7th Ave, Brooklyn, NY 11215</p>
                     </Stack>
+                    <Box className="map-wrap">
+                      <p 
+                        className="map-link"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          setOpenMap(2)
+                        }}
+                      >
+                        See on map
+                      </p>
+                      
+                    </Box>
                   </Stack>
                 </Stack>
               </Stack>
@@ -365,16 +377,37 @@ export default function Products(props: ProductsProps) {
             </Stack>
             
           </Stack>
-          {openMap && (
-            <Box className="map-frame" ref={mapRef}>
+          {openMap === 1 && (
+            <Box className={`map-frame ${openMap === 1 ? "open" : ""}`} ref={mapRef}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12096.561971439389!2d-74.02826521284179!3d40.7149236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a1f282d9f6d%3A0xcbc9d2953228f5c8!2sMysterious%20Book%20Shop!5e0!3m2!1sen!2skr!4v1779568168895!5m2!1sen!2skr" 
-                width="600px" 
-                height="300px" 
-                style={{border: "0"}} 
+                width="1005px" 
+                height="350px" 
+                style={{
+                  border: "0",
+                  marginTop: '40px',
+                  borderRadius: '20px'
+                }} 
                 loading="lazy" 
                 referrerPolicy='no-referrer-when-downgrade'
               ></iframe>
+            </Box>
+          )}
+
+          {openMap === 2 && (
+            <Box className={`map-frame ${openMap === 2 ? "open" : ""}`} ref={mapRef}>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24208.447185015582!2d-74.01578683327114!3d40.672737300000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b07284f6df9%3A0x4c72d20256b53184!2sCommunity%20Bookstore!5e0!3m2!1sen!2skr!4v1779629344285!5m2!1sen!2skr" 
+                width="1005px" 
+                height="350px" 
+                style={{
+                  border: "0",
+                  marginTop: '40px',
+                  borderRadius: '20px'
+                }}  
+                // allowFullScreen
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade">
+              </iframe>
             </Box>
           )}
         </Stack>
