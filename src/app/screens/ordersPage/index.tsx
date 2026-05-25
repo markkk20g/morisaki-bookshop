@@ -196,7 +196,7 @@ export default function OrdersPage() {
                 In case any accidents occured reach our staff members.
               </p>
               <strong>+82 10 2097 7234</strong>
-              <p style={{marginTop: '-14px'}}>morisaki-lib@gmail.com</p>
+              <p style={{marginTop: '-14px', fontWeight: '600'}}>morisaki-lib@gmail.com</p>
             </Stack>
             <div className="main-img">
               <img src="/img/interior-n.png"/>

@@ -1,34 +1,161 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Button, Container, Stack } from "@mui/material";
 import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined';
 import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
+import { useHistory } from "react-router-dom";
+import { useGlobals } from "../../hooks/useGlobals";
+import { Messages, serverApi } from "../../../libs/config";
+import { MemberUpdateInput } from "../../../libs/types/member";
+import { T } from "../../../libs/types/common";
+import { sweetErrorHandling, sweetTopSmallSuccessAlert } from "../../../libs/sweetAlert";
+import MemberService from "../../services/MemberService";
+import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined';
 import "../../../css/users.css";
 import "../../../css/card.css";
+import { OrderStatus } from "../../../libs/enums/order.enum";
+import { Order, OrderInquery } from "../../../libs/types/order";
+import OrderService from "../../services/OrderService";
+import { createSelector, Dispatch } from "@reduxjs/toolkit";
+import { setFinishedOrders } from "../ordersPage/slice";
+import { retrieveFinishedOrders } from "../ordersPage/selector";
+import { useDispatch, useSelector } from "react-redux";
+
+const actionDispatch = (dispatch: Dispatch) => ({
+  setFinishedOrders: (data: Order[]) => dispatch(setFinishedOrders(data)),
+});
+
+const finishedOrdersRetriever = createSelector(
+  retrieveFinishedOrders,
+  (finishedOrders) => ({finishedOrders})
+);
 
 export default function UsersPage() {
-  const authMember = null;
+  const history = useHistory();
+  const { authMember, setAuthMember } = useGlobals();
+  const [memberImage, setMemberImage] = useState<string>(
+    authMember?.memberImage ? `${serverApi}/${authMember.memberImage}` 
+    : "/icons/default-user.svg" 
+  );
+  const { setFinishedOrders } = actionDispatch(useDispatch());
+  const { finishedOrders } = useSelector(finishedOrdersRetriever);
+  
+
+  const [memberUpdateInput, setMemberUpdateInput] = useState<MemberUpdateInput>({
+    memberNick: authMember?.memberNick,
+    memberPhone: authMember?.memberPhone,
+    memberAddress: authMember?.memberAddress,
+    memberDesc: authMember?.memberDesc,
+    memberImage: authMember?.memberImage, 
+  });
+
+  const [orderInquiry, setOrderInquiry] = useState<OrderInquery>({
+    page: 1,
+    limit: 3,
+    orderStatus: OrderStatus.FINISH,
+  });
+
+  useEffect(() => {
+    const order = new OrderService();
+
+    order.getMyOrders({...orderInquiry, orderStatus: OrderStatus.FINISH})
+      .then((data) => setFinishedOrders(data))
+      .catch((err) => console.log(err));
+  }, [orderInquiry])
+
+  /*********  HANDLERS  *********/
+  const memberNickHandler = (e: T) => {
+    memberUpdateInput.memberNick = e.target.value;
+    setMemberUpdateInput({...memberUpdateInput});
+  };
+
+  const memberPhoneHandler = (e: T) => {
+    memberUpdateInput.memberPhone = e.target.value;
+    setMemberUpdateInput({...memberUpdateInput});
+  };
+
+  const memberAddressHandler = (e: T) => {
+    memberUpdateInput.memberAddress = e.target.value;
+    setMemberUpdateInput({...memberUpdateInput});
+  };
+
+  const memberDescHandler = (e: T) => {
+    memberUpdateInput.memberDesc = e.target.value;
+    setMemberUpdateInput({...memberUpdateInput});
+  };
+
+  const handleSubmitButton = async () => {
+    try {
+      if(!authMember) throw new Error(Messages.error2);
+
+      if(
+        memberUpdateInput.memberNick === '' ||
+        memberUpdateInput.memberPhone === '' ||
+        memberUpdateInput.memberAddress === '' ||
+        memberUpdateInput.memberDesc === ''
+      ) {
+        throw new Error(Messages.error3);
+      };
+
+      const member = new MemberService();
+      const result = await member.updateMember(memberUpdateInput);
+      setAuthMember(result);
+
+      await sweetTopSmallSuccessAlert('Successfully modified!', 700);
+    } catch(err) {
+      console.log(err);
+      sweetErrorHandling(err).then();
+    }
+  }
+
+  const handleImageViewer = (e: T) => {
+    const file = e.target.files[0];
+    console.log('file:', file);
+
+    const fileType = file.type;
+    const validateImageTypes = ['image/jpg', 'image/jpeg', 'image/png'];
+
+    if(!validateImageTypes.includes(fileType)) {
+      sweetErrorHandling(Messages.error5).then();
+    } else {
+      if(file) {
+        memberUpdateInput.memberImage = file;
+        setMemberUpdateInput({...memberUpdateInput});
+        setMemberImage(URL.createObjectURL(file));
+      }
+    }
+  }
+
+  if(!authMember) history.push('/');
   return (
     <div className="my-page">
       <Container className="my-screen">
         <Stack className="user-details">
           <Box className="avatar">
             <div className="shape"></div>
-            <img src="/img/avatar.jpg" alt=""/>
+            <img src={authMember?.memberImage ? `${serverApi}/${authMember?.memberImage}` : "/img/avatar.jpg" } alt=""/>
           </Box>
           <Stack className="user-info">
             <Stack className="name-type">
-              <p>USER</p>
-              <span>Alex Walker</span>
+              <p>{authMember?.memberType}</p>
+              <span>{authMember?.memberNick}</span>
             </Stack>
             <Stack className="address">
-              <span>Manhattan NY</span>
-              <p>Classical novels lover and enthusiast</p>
+              <span>
+                {authMember?.memberAddress 
+                ? authMember.memberAddress 
+                : "no address given yet"}
+              </span>
+              <p>
+                {authMember?.memberDesc 
+                ? authMember.memberDesc 
+                : "no description given yet"}
+              </p>
             </Stack>
           </Stack>
         </Stack>
         <Stack className="order-details">
-          <Stack className="buttons">
+          <Stack className="buttons" onClick={() => history.push('/orders')}>
             <div className="icon"><ListAltOutlinedIcon /></div>
             <Stack className="detail">
               <span>View All Orders</span>
@@ -59,17 +186,21 @@ export default function UsersPage() {
             <Stack className="form">
               <Stack className="img-upload">
                 <Box className="img-frame">
-                  <img src={authMember ? '' : '/img/avatar.jpg'} alt=""/>
+                  <img src={authMember?.memberImage ? `${serverApi}/${authMember.memberImage}` : '/img/avatar.jpg'} alt=""/>
                 </Box>
                 <Stack className="upload-form">
                   <form>
                     <span>Upload Image</span>
-                    
-                    <input 
-                      type="file"
-                      accept="image/*"
-                      
-                    />
+                    <p>JPG, JPEG, PNG formats only allowed!</p>
+                    <Button component={'label'} onChange={handleImageViewer}>
+                      <DriveFolderUploadOutlinedIcon />
+                      <span>upload</span>
+                      <input 
+                        type="file"
+                        accept="image/*"
+                        hidden
+                        />
+                    </Button>
                   </form>
                 </Stack>
               </Stack>
