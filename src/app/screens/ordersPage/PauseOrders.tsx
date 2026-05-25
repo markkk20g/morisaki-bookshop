@@ -95,7 +95,9 @@ const processOrderHandler = async (e: T) => {
     <TabPanel value="1" sx={{padding: '0px'}}>
       <Stack>
         {pausedOrders?.map((order: Order) => {
-          const totalItems = Object.keys(order).length;
+          const totalItems = order.orderItems.reduce((sum, item) => {
+            return sum + item.itemQuantity
+          }, 0);
           return (
             <Stack className="content-card">
               <Stack className="content">
@@ -104,10 +106,20 @@ const processOrderHandler = async (e: T) => {
                     <span>{order?.orderNumber}</span>
                     <p>{orderDateFormatted(order?.createdAt)}</p>
                   </Stack>
-                  <Stack className="butts">
-                    <Button className="cancel">Cancel</Button>
-                    <Button className="pay">payment</Button>
-                  </Stack>
+                  <Box className="butts">
+                    <Button 
+                      className="cancel"
+                      value={order._id}
+                      onClick={deleteOrderHandler}
+                    >
+                      Cancel</Button>
+                    <Button 
+                      className="pay"
+                      value={order._id}
+                      onClick={processOrderHandler}
+                    >
+                      payment</Button>
+                  </Box>
                 </Stack>
                 <Stack className="orders">
                   {order?.orderItems?.map((item: OrderItem) => {

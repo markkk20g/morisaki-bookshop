@@ -10,7 +10,7 @@
   position: relative;
   margin: 0 auto;
   width: 1300px;
-  height: 1106px;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -453,8 +453,9 @@
 .orders-screen .right .sections .section-box .box-content {
   position: relative;
   /* Orders List */
-  width: 773.33px;
+  width: 783px;
   height: auto;
+  max-height: 944px;
   /* Auto layout */
   display: flex;
   flex-direction: column;
@@ -462,6 +463,20 @@
   align-items: flex-start;
   gap: 24px;
   padding: 0px 0px 32px 0px;
+  overflow-y: scroll;
+}
+
+.orders-screen .right .sections .section-box .box-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.orders-screen
+  .right
+  .sections
+  .section-box
+  .box-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
 }
 
 .orders-screen .right .sections .section-box .box-content .content-card {
@@ -477,6 +492,7 @@
   border: 1px solid rgba(187, 202, 191, 1);
   border-radius: 12px;
   background: rgba(255, 255, 255, 1);
+  margin-bottom: 20px;
 }
 
 .right .sections .section-box .box-content .content-card .content {
@@ -707,7 +723,7 @@
   .content-card
   .content
   .orders::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 999px;
 }
 
