@@ -127,7 +127,7 @@ const processOrderHandler = async (e: T) => {
                           </Stack>
                         </Stack>
                         <Stack className="item-price">
-                          <span>${item.itemPrice}</span>
+                          <span>${item.itemPrice.toFixed(2)}</span>
                           <p>Qty: {item.itemQuantity}</p>
                         </Stack>
                       </Stack>
@@ -183,15 +183,15 @@ const processOrderHandler = async (e: T) => {
                 <Stack className="sums">
                   <Stack className="cost">
                     <span>Subtotal ({totalItems} items)</span>
-                    <p>$ {order.orderTotal - order.orderDelivery}</p>
+                    <p>$ {(order.orderTotal - order.orderDelivery).toFixed(2)}</p>
                   </Stack>
                   <Stack className="cost">
                     <span>Shipping</span>
-                    <p>{order.orderDelivery ? `$ ${order.orderDelivery}` : "Free"}</p>
+                    <p>{order.orderDelivery ? `$ ${order.orderDelivery.toFixed(2)}` : "Free"}</p>
                   </Stack>
                   <Stack className="total">
                     <span>Total</span>
-                    <p>$ {order.orderTotal}</p>
+                    <p>$ {order.orderTotal.toFixed(2)}</p>
                   </Stack>
                 </Stack>
               </Stack>

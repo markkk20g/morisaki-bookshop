@@ -21,7 +21,7 @@ export default function NewArrivalCard(props: NewArrivalsCardProps) {
           <p>{product.productAuthorName}</p>
         </Stack>
         <Stack className="new-footer">
-          <span>${product.productPrice}</span>
+          <span>${product.productPrice.toFixed(2)}</span>
           <Button 
             className="butt"
             onClick={(e) => {

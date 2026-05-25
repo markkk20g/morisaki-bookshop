@@ -135,30 +135,34 @@ export default function Basket(props: BasketProps) {
                 const imagePath = `${serverApi}/${item.image}`;
                 return(
                   <Box className={"basket-info-box"} key={item._id}>
-                    <div className={"cancel-btn"}>
-                      <CancelIcon 
-                        color={"primary"} 
-                        sx={{color: '#e61818', mt: '-1.5px'}}
-                        onClick={() => onDelete(item)}
-                      />
-                    </div>
-                    <img src={imagePath} className={"product-img"} />
-                    <span className={"product-name"}>{item.name}</span>
-                    <p className={"product-price"}>${item.price} x {item.quantity}</p>
-                    <Box sx={{ minWidth: 120 }}>
-                      <div className="col-2 plusMinus">
-                        <button 
-                          className="remove"
-                          onClick={() => onRemove(item)}
-                        >-</button>
-                        <div className="divider"></div>
-                        <button 
-                          className="add" 
-                          onClick={() => onAdd(item)}
-                        >+</button>
+                    <Stack className="img-name">
+                      <img src={imagePath} className={"product-img"} />
+                      <span className={"product-name"}>{item.name}</span>
+                    </Stack>
+                    <Stack className="price-qnt">
+                      <p className={"product-price"}>${item.price} x {item.quantity}</p>
+                      <Box >
+                        <div className="col-2 plusMinus">
+                          <button 
+                            className="remove"
+                            onClick={() => onRemove(item)}
+                          >-</button>
+                          <div className="divider"></div>
+                          <button 
+                            className="add" 
+                            onClick={() => onAdd(item)}
+                          >+</button>
+                        </div>
+                      </Box>
+                      <div className={"cancel-btn"}>
+                        <CancelIcon 
+                          color={"primary"} 
+                          sx={{color: '#e61818', fontSize: '20px'}}
+                          onClick={() => onDelete(item)}
+                        />
                       </div>
+                    </Stack>
                   </Box>
-              </Box>
                 );
               })}
               

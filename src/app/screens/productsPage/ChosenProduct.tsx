@@ -99,7 +99,7 @@ export default function ChosenProduct(props: ChosenProductProps) {
             <div className="type">
               <div className="label">
                 <span>PAPERBACK</span>
-                <span style={{fontSize: '25px', fontWeight: '600', color: '#1a1c1d'}}>${chosenProduct.productPrice}</span>
+                <span style={{fontSize: '25px', fontWeight: '600', color: '#1a1c1d'}}>${chosenProduct.productPrice.toFixed(2)}</span>
               </div>
               <Button className="price">
                 <ShoppingBasketOutlinedIcon style={{color: '#fff'}}/>

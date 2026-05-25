@@ -48,7 +48,7 @@ export default function Products(props: ProductsProps) {
   const [productSearch, setProductSearch] = useState<ProductInquiry>({
     page: 1,
     limit: 8,
-    order: 'createdAt',
+    order: 'productViews',
     direction: -1,
     productCollection: ProductCollection.FICTION,
     search: '',

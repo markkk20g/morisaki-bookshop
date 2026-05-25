@@ -20,7 +20,7 @@ export default function TrendCard(props: TrendingCardProps) {
         <p className="trend-author">{product.productAuthorName}</p>
 
         <div className="trend-footer">
-          <span className="trend-price">${product.productPrice}</span>
+          <span className="trend-price">${product.productPrice.toFixed(2)}</span>
 
           <button className="trend-button">🛒 Add</button>
         </div>

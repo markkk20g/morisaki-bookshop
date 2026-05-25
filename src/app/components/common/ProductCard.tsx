@@ -35,7 +35,7 @@ export default function ProductCard(props: ProductCardProps) {
           <p className="pro-card-author">{product.productAuthorName}</p>
 
           <div className="pro-card-footer">
-            <span className="pro-card-price">${product.productPrice}</span>
+            <span className="pro-card-price">${product.productPrice.toFixed(2)}</span>
 
             <button 
               className="pro-card-button"
