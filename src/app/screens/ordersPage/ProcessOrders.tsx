@@ -73,7 +73,7 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
             return sum + item.itemQuantity
           }, 0);
           return (
-            <Stack className="content-card">
+            <Stack key={order._id} className="content-card">
               <Stack className="content">
                 <Stack className="head">
                   <Stack className="title">
