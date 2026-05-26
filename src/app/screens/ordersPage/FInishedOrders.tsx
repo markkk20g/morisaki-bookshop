@@ -1,13 +1,6 @@
-// import React from "react";
-import { Box, Button, Container, Stack } from "@mui/material";
-import * as React from 'react';
-import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
+import React from "react";
+import { Box, Stack } from "@mui/material";
 import TabPanel from '@mui/lab/TabPanel';
-
-import "../../../css/card.css";
-import "../../../css/orders.css";
 import { createSelector } from "@reduxjs/toolkit";
 import { retrieveFinishedOrders } from "./selector";
 import { useSelector } from "react-redux";
@@ -15,6 +8,9 @@ import { Order, OrderItem } from "../../../libs/types/order";
 import { orderDateFormatted } from "../../../libs/common";
 import { Product } from "../../../libs/types/product";
 import { serverApi } from "../../../libs/config";
+
+import "../../../css/card.css";
+import "../../../css/orders.css";
 
 /****************************************
              REDUX SELECTOR
@@ -54,7 +50,7 @@ export default function FinishedOrders() {
                     )[0];
                     const imagePath = `${serverApi}/${product.productImages[0]}`;
                     return (
-                      <Stack className="item">
+                      <Stack key={item.productId} className="item">
                         <Stack className="item-title">
                           <Box>
                             <img src={imagePath} alt=""/>

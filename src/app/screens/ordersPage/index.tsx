@@ -4,8 +4,6 @@ import React, { SyntheticEvent, useEffect, useState } from 'react';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
-
 import PauseOrders from "./PauseOrders";
 import ProcessOrders from "./ProcessOrders";
 import FinishedOrders from "./FInishedOrders";
@@ -20,6 +18,9 @@ import { useHistory } from "react-router-dom";
 import { OrderStatus } from "../../../libs/enums/order.enum";
 import OrderService from "../../services/OrderService";
 import { serverApi } from "../../../libs/config";
+
+import "../../../css/card.css";
+import "../../../css/orders.css";
 
 /****************************************
               REDUX SLICE
@@ -156,17 +157,19 @@ export default function OrdersPage() {
               <TabContext value={value}>
                 <Box className="head-tabs">
                   <TabList 
-                    onChange={handleChange} 
+                    onChange={handleChange}
+                    className="tablist"
                     aria-label="lab API tabs example"
                     TabIndicatorProps={{style: {display: 'none'}}}
                   >
                     <Tab 
-                      label="Paused Orders"
+                      label="Paused"
                       value="1"
                       className="tab"
+                      // color={'#bc0100'}
                     />
-                    <Tab label="process orders" value="2" className="tab"/>
-                    <Tab label="finished orders" value="3" className="tab"/>
+                    <Tab label="process" value="2" className="tab"/>
+                    <Tab label="finished" value="3" className="tab"/>
                   </TabList>
                 </Box>
                 <Stack className="box-content">

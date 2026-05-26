@@ -1,11 +1,7 @@
-// import React from "react";
-import { Box, Button, Container, Stack } from "@mui/material";
-import * as React from 'react';
-import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
+import React from "react";
+import { Box, Button, Stack } from "@mui/material";
+// import * as React from 'react';
 import TabPanel from '@mui/lab/TabPanel';
-
 import "../../../css/card.css";
 import "../../../css/orders.css";
 import { createSelector } from "@reduxjs/toolkit";
@@ -20,6 +16,9 @@ import { OrderStatus } from "../../../libs/enums/order.enum";
 import OrderService from "../../services/OrderService";
 import { orderDateFormatted } from "../../../libs/common";
 import { Product } from "../../../libs/types/product";
+
+import "../../../css/card.css";
+import "../../../css/orders.css";
 
 /****************************************
              REDUX SELECTOR
@@ -128,7 +127,7 @@ const processOrderHandler = async (e: T) => {
                     )[0];
                     const imagePath = `${serverApi}/${product.productImages[0]}`;
                     return (
-                      <Stack className="item">
+                      <Stack key={item.productId} className="item">
                         <Stack className="item-title">
                           <Box>
                             <img src={imagePath} alt=""/>
