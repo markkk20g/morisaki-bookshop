@@ -60,6 +60,9 @@ export default function Products(props: ProductsProps) {
   const mapRef = useRef<HTMLElement | null>(null);
   const history = useHistory();
 
+  const totalProducts = counts[productSearch.productCollection] || 0;
+  const totalPages = Math.ceil(totalProducts / productSearch.limit);
+
   useEffect(() => {
     const product = new ProductService();
     product.getProducts(productSearch)
@@ -231,10 +234,6 @@ export default function Products(props: ProductsProps) {
           </Stack>
           <Stack className="sidebar-sorting">
             <Box className="category-title">SORTED BY</Box>
-            {/* <Box className="sorting-tool" flexDirection={"row"}>
-              <p>Relevance</p>
-              <ExpandMoreIcon />
-            </Box> */}
             <Box>
               <select 
                 className="sorting-tool"
@@ -293,22 +292,20 @@ export default function Products(props: ProductsProps) {
             ) : (
               <Box className="no-data">Products are not available!</Box>
             )}
-            {/* {productsCard.map((product, index) => {
-              return <ProductCard key={index} />
-            })} */}
           </Stack>
           <Stack className="main-frame-pagination">
             <Stack spacing={2} className='pagination'>
             <Pagination
-              count={products.length !== 0 ? productSearch.page + 1 : productSearch.page}
+              count={totalPages}
+              page={productSearch.page}
               color='secondary'
+              onChange={paginationHandler}
               renderItem={(item) => (
                 <PaginationItem
                   slots={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
                   {...item}
                 />
               )}
-              onChange={paginationHandler}
             />
           </Stack>
           </Stack>
@@ -404,7 +401,6 @@ export default function Products(props: ProductsProps) {
                   marginTop: '40px',
                   borderRadius: '20px'
                 }}  
-                // allowFullScreen
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade">
               </iframe>

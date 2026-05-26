@@ -24,6 +24,6 @@ export interface ProductInquiry {
   limit: number;
   page: number;
   direction: number;
-  productCollection?: ProductCollection;
+  productCollection: ProductCollection;
   search?: string;
 }

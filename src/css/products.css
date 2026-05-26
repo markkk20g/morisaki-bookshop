@@ -348,7 +348,8 @@
   /* Auto layout */
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 18px;
   flex-wrap: wrap;
   row-gap: 20px;
   padding: 0px 0px 60px 0px;
