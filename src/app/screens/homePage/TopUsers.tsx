@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function DiscoverArticles() {
+export default function TopUsers() {
   return (
     <div>
       Discover Your Next Read!

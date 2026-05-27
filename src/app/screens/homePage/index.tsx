@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import NewArrivals from "./NewArrivals";
-import DiscoverArticles from "./DiscoverArticles";
+import DiscoverArticles from "./TopUsers";
 import Bestsellers from "./Bestsellers";
 import CustomersPicks from "./CustomersPicks";
 import Events from "./Events";

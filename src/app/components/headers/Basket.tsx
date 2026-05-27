@@ -74,9 +74,9 @@ export default function Basket(props: BasketProps) {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <Badge badgeContent={cartItems.length} style={{color: '#202623'}}>
+        <Badge badgeContent={cartItems.length} color="secondary">
           {/* <img src={"/icons/shopping-cart.svg"} /> */}
-          <ShoppingBasketOutlinedIcon style={{fontSize:"25px"}}/>
+          <ShoppingBasketOutlinedIcon style={{fontSize:"25px", color: '#202623'}}/>
         </Badge>
       </IconButton>
       <Menu
@@ -172,15 +172,15 @@ export default function Basket(props: BasketProps) {
           </Box>
           {cartItems.length !== 0 ? (
             <Box className={"basket-order"}>
-            <span className={"price"}>Total: ${totalPrice} ({itemsPrice} + {shippingCost})</span>
-            <Button 
-              onClick={proceedOrderHandler}
-              startIcon={<ShoppingCartIcon />} 
-              variant={"contained"}
-            >
-              Order
-            </Button>
-          </Box>
+              <span className={"price"}>Total: ${totalPrice} ({itemsPrice} + {shippingCost})</span>
+              <Button 
+                onClick={proceedOrderHandler}
+                startIcon={<ShoppingBasketOutlinedIcon />} 
+                variant={"contained"}
+              >
+                Order
+              </Button>
+            </Box>
           ) : ('')}
         </Stack>
       </Menu>

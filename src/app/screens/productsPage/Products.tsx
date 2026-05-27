@@ -1,17 +1,14 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import { Box, Button, Container, Pagination, PaginationItem, Stack } from "@mui/material";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ProductCard from "../../components/common/ProductCard";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import SearchIcon from '@mui/icons-material/Search';
-import "../../../css/products.css";
-import "../../../css/card.css";
 import { createSelector, Dispatch } from "@reduxjs/toolkit";
 import { setProducts } from "./slice";
 import { Product, ProductInquiry } from "../../../libs/types/product";
 import { retrieveProducts } from "./selector";
 import { useDispatch, useSelector } from "react-redux";
-import { Direction, ProductCollection } from "../../../libs/enums/product.enum";
+import { ProductCollection } from "../../../libs/enums/product.enum";
 import { useHistory } from "react-router-dom";
 import ProductService from "../../services/ProductService";
 import { CartItem } from "../../../libs/types/search";
@@ -19,6 +16,8 @@ import { serverApi } from "../../../libs/config";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { T } from "../../../libs/types/common";
+import "../../../css/products.css";
+import "../../../css/card.css";
 
 /****************************************
               REDUX SLICE
