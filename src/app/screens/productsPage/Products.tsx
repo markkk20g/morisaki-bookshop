@@ -54,12 +54,13 @@ export default function Products(props: ProductsProps) {
   })
 
   const [counts, setCounts] = useState<any>({});
-  const [searchText, setSearchText] = useState<string>('');
+  const [searchText, setSearchText] = useState<string>("");
   const [openMap, setOpenMap] = useState<number | null>(null);
   const mapRef = useRef<HTMLElement | null>(null);
   const history = useHistory();
 
-  const totalProducts = counts[productSearch.productCollection] || 0;
+  const totalProducts = productSearch.productCollection 
+    ? counts[productSearch.productCollection] : 0;
   const totalPages = Math.ceil(totalProducts / productSearch.limit);
 
   useEffect(() => {

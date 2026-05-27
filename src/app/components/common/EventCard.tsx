@@ -4,39 +4,63 @@ import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 
 import "../../../css/cards/eventCard.css";
+import { events } from "../../../libs/data/events";
 
 
-export default function EventCard() {
+export default function EventCard({ event }: any) {
   return (
     <Stack className="event-card">
       <Box className="image">
-        <Box className="type">networking</Box>
-        <img src="/img/event1.png" alt="" />
+        <Box className="type">{event.type}</Box>
+
+        <img src={event.img} alt="" />
       </Box>
+
       <Stack className="event-info">
         <Stack className="header">
-          <CalendarMonthOutlinedIcon style={{color:' #bc0100', width: '17px' }} />
-          <span>JUN 15</span>
+          <CalendarMonthOutlinedIcon
+            style={{
+              color: "#bc0100",
+              width: "17px",
+            }}
+          />
+
+          <span>{event.date}</span>
         </Stack>
-        <strong>Ethics in Digital Curation</strong>
-        <p>An evening of networking for the city's finest digital minds. 
-          Cocktails, music, and impromptu design discussions.
-        </p>
+
+        <strong>{event.title}</strong>
+
+        <p>{event.desc}</p>
+
         <Stack className="location">
+
           <Stack className="time">
-            <AccessTimeOutlinedIcon 
-              style={{color:' #bc0100', width: '17px' }}
+            <AccessTimeOutlinedIcon
+              style={{
+                color: "#bc0100",
+                width: "17px",
+              }}
             />
-            <span>6:00 PM - 9:00 PM</span>
+
+            <span>{event.time}</span>
           </Stack>
+
           <Stack className="time">
-            <LocationOnOutlinedIcon 
-              style={{color:' #bc0100', width: '20px', marginLeft: '-1.8px' }}
+            <LocationOnOutlinedIcon
+              style={{
+                color: "#bc0100",
+                width: "20px",
+                marginLeft: "-1.8px",
+              }}
             />
-            <span style={{marginLeft: '-1px'}}>The Central Atrium</span>
+
+            <span style={{ marginLeft: "-1px" }}>
+              {event.location}
+            </span>
           </Stack>
+
         </Stack>
       </Stack>
     </Stack>
-  )
+  );
 }

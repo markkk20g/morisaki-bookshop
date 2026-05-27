@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import NewArrivals from "./NewArrivals";
-import DiscoverArticles from "./TopUsers";
 import Bestsellers from "./Bestsellers";
 import CustomersPicks from "./CustomersPicks";
 import Events from "./Events";
@@ -15,16 +14,14 @@ import ProductService from "../../services/ProductService";
 import 'swiper/css'; // @ts-ignore
 import 'swiper/css/navigation'; // @ts-ignore
 import 'swiper/css/pagination';
-
+import { CartItem } from "../../../libs/types/search";
+import { Member } from "../../../libs/types/member";
+import MemberService from "../../services/MemberService";
+import TopUsers from "./TopUsers";
 import "../../../css/home.css";
 import "../../../css/card.css";
 import "../../../css/cards/eventCard.css";
 import "../../../css//statistic.css";
-import { CartItem } from "../../../libs/types/search";
-import { Member } from "../../../libs/types/member";
-import MemberService from "../../services/MemberService";
-import { Direction } from "../../../libs/enums/product.enum";
-
 
 /****************************************
               REDUX SLICE
@@ -79,9 +76,9 @@ export default function HomePage(props: HomePageProps) {
       <Statistic />
       <Bestsellers />
       <NewArrivals onAdd={onAdd} />
-      {/* <DiscoverArticles /> */}
       {/* <CustomersPicks /> */}
       <Trending />
+      <TopUsers />
       <Events />
     </div>
   );
