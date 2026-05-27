@@ -6,6 +6,8 @@ import { CartItem } from "../../../libs/types/search";
 import { useGlobals } from "../../hooks/useGlobals";
 import Basket from "./Basket";
 import { Logout } from "@mui/icons-material";
+import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
+import { serverApi } from "../../../libs/config";
 
 interface HomeNavbarProps {
   cartItems: CartItem[];
@@ -49,7 +51,7 @@ export const Topbar = (props: HomeNavbarProps) => {
         </Box>
         <Stack className="right">
           <Box className="top-links">
-            <NavLink to="/" activeClassName="underline">Home</NavLink>
+            <NavLink exact to="/" activeClassName="underline">Home</NavLink>
           </Box>
           <Box className="top-links">
             <NavLink to="/products" activeClassName="underline">Books</NavLink>
@@ -80,7 +82,15 @@ export const Topbar = (props: HomeNavbarProps) => {
 
           {authMember ? (
             <Box className="top-avatar">
-              <AccountBoxIcon />
+              {/* <AccountBoxIcon /> */}
+              <img 
+                className="user-avatar"
+                src={authMember.memberImage 
+                  ? `${serverApi}/${authMember.memberImage}` 
+                  : "/img/avatar.jpg"}
+                aria-haspopup={'true'}
+                onClick={handleLogoutClick}
+              />
             </Box>
           ) : (
             <Box className="login">
@@ -105,6 +115,8 @@ export const Topbar = (props: HomeNavbarProps) => {
                 elevation: 0,
                 sx: {
                   overflow: 'visible',
+                  color: '#292623',
+                  fontWeight: 'bold',
                   filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
                   mt: 1.5,
                   '& .MuiAvatar-root': {
@@ -132,9 +144,9 @@ export const Topbar = (props: HomeNavbarProps) => {
             >
               <MenuItem onClick={handleLogoutRequest}>
                 <ListItemIcon>
-                  <Logout fontSize="small" style={{ color: 'blue' }} />
+                  <Logout fontSize="small" style={{ color: '#eb0000' }} />
                 </ListItemIcon>
-                Logout
+                <span>Logout</span>
               </MenuItem>
             </Menu>
         </Stack>

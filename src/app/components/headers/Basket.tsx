@@ -12,6 +12,7 @@ import { Messages, serverApi } from "../../../libs/config";
 import { sweetErrorHandling } from "../../../libs/sweetAlert";
 import { useGlobals } from "../../hooks/useGlobals";
 import OrderService from "../../services/OrderService";
+import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
 
 
 interface BasketProps {
@@ -73,8 +74,9 @@ export default function Basket(props: BasketProps) {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <Badge badgeContent={cartItems.length} color="secondary">
-          <img src={"/icons/shopping-cart.svg"} />
+        <Badge badgeContent={cartItems.length} style={{color: '#202623'}}>
+          {/* <img src={"/icons/shopping-cart.svg"} /> */}
+          <ShoppingBasketOutlinedIcon style={{fontSize:"25px"}}/>
         </Badge>
       </IconButton>
       <Menu
