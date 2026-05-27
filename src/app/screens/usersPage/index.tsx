@@ -20,6 +20,7 @@ import { createSelector, Dispatch } from "@reduxjs/toolkit";
 import { setFinishedOrders } from "../ordersPage/slice";
 import { retrieveFinishedOrders } from "../ordersPage/selector";
 import { useDispatch, useSelector } from "react-redux";
+import { MemberType } from "../../../libs/enums/member.enum";
 
 const actionDispatch = (dispatch: Dispatch) => ({
   setFinishedOrders: (data: Order[]) => dispatch(setFinishedOrders(data)),
@@ -35,7 +36,7 @@ export default function UsersPage() {
   const { authMember, setAuthMember } = useGlobals();
   const [memberImage, setMemberImage] = useState<string>(
     authMember?.memberImage ? `${serverApi}/${authMember.memberImage}` 
-    : "/icons/default-user.svg" 
+    : "/img/avatar.jpg" 
   );
   const { setFinishedOrders } = actionDispatch(useDispatch());
   const { finishedOrders } = useSelector(finishedOrdersRetriever);
@@ -134,6 +135,14 @@ export default function UsersPage() {
           <Box className="avatar">
             <div className="shape"></div>
             <img src={authMember?.memberImage ? `${serverApi}/${authMember?.memberImage}` : "/img/avatar.jpg" } alt=""/>
+            <Box className="user-badge">
+              <img 
+                className="badge-img"
+                src={authMember?.memberType === MemberType.ADMIN 
+                ? '/icons/verified.png' : '/icons/not-verified.png'} 
+                
+              />
+            </Box>
           </Box>
           <Stack className="user-info">
             <Stack className="name-type">
@@ -186,18 +195,18 @@ export default function UsersPage() {
             <Stack className="form">
               <Stack className="img-upload">
                 <Box className="img-frame">
-                  <img src={authMember?.memberImage ? `${serverApi}/${authMember.memberImage}` : '/img/avatar.jpg'} alt=""/>
+                  <img src={memberImage} alt=""/>
                 </Box>
                 <Stack className="upload-form">
                   <form>
                     <span>Upload Image</span>
                     <p>JPG, JPEG, PNG formats only allowed!</p>
                     <Button component={'label'} onChange={handleImageViewer}>
-                      <DriveFolderUploadOutlinedIcon />
-                      <span>upload</span>
+                      <DriveFolderUploadOutlinedIcon sx={{marginLeft: '-11px'}}/>
+                      <span style={{marginLeft: '7px'}}>upload</span>
                       <input 
                         type="file"
-                        accept="image/*"
+                        // accept="image/*"
                         hidden
                         />
                     </Button>
@@ -208,31 +217,53 @@ export default function UsersPage() {
                 <Box className="form-in">
                   <span>username</span>
                   <input 
-                    // placeholder="Alex Walker"
-                    value={'Alex Walker'}
+                    type="text"
+                    placeholder={authMember?.memberNick}
+                    value={memberUpdateInput.memberNick}
+                    name="memberNick"
+                    onChange={memberNickHandler}
                   />
                 </Box>
                 <Box className="form-in">
                   <span>phone</span>
                   <input 
-                    // placeholder="+82 10 1234-5678"
-                    value={'+82 10 1234 5678'}
+                    type="text"
+                    placeholder={authMember?.memberPhone}
+                    value={memberUpdateInput.memberPhone}
+                    name="memberPhone"
+                    onChange={memberPhoneHandler}
                   />
                 </Box>
                 <Box className="form-in">
                   <span>address</span>
-                  <textarea name="message" rows={4} placeholder="221B Baker Street, London, UK">
-                    
+                  <textarea 
+                    name="memberAddress" 
+                    rows={4} 
+                    placeholder={authMember?.memberAddress ? authMember.memberAddress : 'no address given yet'}
+                    value={memberUpdateInput.memberAddress}
+                    onChange={memberAddressHandler}
+                  >          
                   </textarea>
                 </Box>
                 <Box className="form-in">
                   <span>Description</span>
-                  <textarea name="message" rows={4} placeholder="Tell us about you">
+                  <textarea 
+                    name="memberDesc" 
+                    rows={4} 
+                    placeholder={authMember?.memberDesc ? authMember.memberDesc : 'no description given yet'}
+                    value={memberUpdateInput.memberDesc}
+                    onChange={memberDescHandler}
+                  >
                     
                   </textarea>
                 </Box>
                 <Box>
-                  <Button className="button">Save Changes</Button>
+                  <Button 
+                    className="button"
+                    onClick={handleSubmitButton}
+                  >
+                    Save Changes
+                  </Button>
                 </Box>
               </Stack>
             </Stack>

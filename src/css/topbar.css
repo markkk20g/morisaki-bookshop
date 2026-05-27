@@ -101,6 +101,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .topbar-frame .topbar-container .right .top-links::after {

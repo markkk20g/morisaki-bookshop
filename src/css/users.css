@@ -46,7 +46,7 @@
 }
 
 .my-page .my-screen .user-details .avatar .shape {
-  position: relative;
+  position: absolute;
   /* Container */
   width: 160px;
   height: 160px;
@@ -56,7 +56,7 @@
     rgba(188, 1, 0, 1) 0%,
     rgba(213, 62, 11, 1) 100%
   );
-  opacity: 0.1;
+  opacity: 1;
 }
 
 .my-page .my-screen .user-details .avatar img {
@@ -68,6 +68,26 @@
   border: 4px solid rgba(249, 249, 251, 1);
   border-radius: 9999px;
   background: url();
+  object-fit: cover;
+}
+
+.my-page .my-screen .user-details .avatar .user-badge {
+  position: absolute;
+  /* Container */
+  width: 30px;
+  height: 30px;
+  bottom: 0px;
+  right: 0px;
+  /* border-radius: 9999px; */
+}
+
+.my-page .my-screen .user-details .avatar .user-badge .badge-img {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background: #f9f9fb;
 }
 
 .my-page .my-screen .user-details .user-info {
@@ -367,7 +387,7 @@
   width: 84px;
   height: 84px;
   border-radius: 50%;
-
+  object-fit: cover;
   display: flex;
   justify-content: center;
   align-items: center;
