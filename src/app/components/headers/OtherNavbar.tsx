@@ -51,9 +51,23 @@ export default function OtherNavbar(props: OtherNavbarProps) {
         handleCloseLogout={handleCloseLogout}
         handleLogoutRequest={handleLogoutRequest}
       />
-      <Container>
-        
-      </Container>
+        <img id="background-img" src="/icons/logo/books.jpg" alt=""/>
+      <div className="other-frame">
+        <div className="other-frame-gradient" />
+        <Container className="other-frame-container">
+          <Stack className="other-detail" style={{opacity: 1}}>
+            <Box className="other-parag">
+              <p>Thoughts, Words, Meaning</p>
+            </Box>
+            <Box className="other-heading">
+              <h1 style={{opacity: 1}}>Discover books that inspire curiosity and imagination</h1>
+            </Box>
+          </Stack>
+          <Box className="big-icon">
+            <img src="/icons/logo/book-icon.png" alt="" />
+          </Box>
+        </Container>
+      </div>
     </div>
   );
 }

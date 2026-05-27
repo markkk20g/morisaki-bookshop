@@ -59,7 +59,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
         <Container className="header-frame-container">
           <Stack className="header-detail">
             <Box className="header-heading">
-              <h1>Discover your next read</h1>
+              <h1>For Books That Last a Lifetime</h1>
             </Box>
             <Box className="header-parag">
               <p>Elevated literature for the modern mind. Explore our

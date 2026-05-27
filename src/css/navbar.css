@@ -118,14 +118,13 @@
   color: #00000095;
 }
 
-/* HEADER FRAME */
+/*************************************************** 
+               HEADER FRAME NAVBAR 
+****************************************************/
 
 .home-navbar .header-frame {
-  /* Hero Section */
-  /* width: 1280px; */
   width: 100%;
   height: 870px;
-  /* Auto layout */
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -133,23 +132,17 @@
   padding: 0px 64px 0px 64px;
   background: url("/public/img/bg-store1.png");
   position: relative;
-
-  /* height: 450px; */
-  /* display: flex; */
-  /* background: url("/public/img/cover-3.jpg"); */
   background-size: cover;
   object-fit: cover;
   object-position: center;
   background-position: center;
   background-repeat: no-repeat;
-  /* z-index: -1; */
 }
 
 .home-navbar .header-frame .header-frame-container {
   /* Container */
   width: 1300px;
   height: 870px;
-  /* Auto layout */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -204,7 +197,7 @@
 
 .header-frame .header-detail .header-heading {
   /* Heading 1 */
-  width: 709.56px;
+  width: 809.56px;
   height: 192px;
   /* Auto layout */
   display: flex;
@@ -215,7 +208,7 @@
 
 .header-frame .header-detail .header-heading h1 {
   /* Text */
-  width: 709.56px;
+  width: 809.56px;
   height: 192px;
   display: flex;
   flex-direction: row;
@@ -399,10 +392,138 @@
   /* box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3); */
 }
 
-/* OTHER NAVBAR */
+/*************************************************** 
+                   OTHER NAVBAR 
+****************************************************/
 
 .other-navbar {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+}
+
+.other-navbar .other-frame {
+  width: 100%;
+  height: 336px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 64px 0px 64px;
+  /* background: url("/public/icons/logo/books.jpg"); */
+  /* opacity: 0.3; */
+  position: relative;
+  background-size: cover;
+  /* object-fit: cover; */
+  object-position: right;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+#background-img {
+  position: absolute;
+  width: 100%;
+  height: 336px;
+  opacity: 0.2;
+  object-fit: cover;
+  /* z-index: 99; */
+}
+
+.other-navbar .other-frame .other-frame-gradient {
+  /* Gradient */
+  position: absolute;
+  display: flex;
+  align-items: flex-start!;
+  padding: 0!;
+  margin-left: -64px;
+
+  width: 100%;
+  height: 336px;
+  /* background: linear-gradient(
+    90deg,
+    rgba(188, 1, 0, 1),
+    rgba(213, 62, 11, 1) 100%
+  ); */
+  background: linear-gradient(90deg, #f3f4f5, #dedede 100%);
+  opacity: 0.9;
+  /* background: #f3f4f5; */
+}
+
+.other-navbar .other-frame .other-frame-container {
+  /* Container */
+  width: 1300px;
+  height: 336px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* overflow: hidden; */
+}
+
+.other-navbar .other-frame .other-frame-container .other-detail {
+  /* Container */
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* overflow: hidden; */
+  z-index: 909;
+}
+
+.other-navbar .other-frame .other-frame-container .other-detail h1 {
+  position: relative;
+  width: 672px;
+  height: 96px;
+  color: rgba(0, 0, 0, 1);
+
+  font-family: "Epilogue", sans-serif;
+  font-style: Black;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 48px;
+  letter-spacing: -2.4px;
+  text-align: left;
+}
+
+.other-navbar .other-frame .other-frame-container .other-detail p {
+  position: relative;
+  color: #bc0100;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-style: Bold;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 2.4px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.other-navbar .other-frame .other-frame-container .big-icon {
+  position: absolute;
+
+  /* Container */
+  bottom: -32px;
+  right: -20px;
+  width: 490px;
+  height: 440px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* overflow: hidden; */
+  opacity: 0.1;
+}
+
+.other-navbar .other-frame .other-frame-container .big-icon img {
+  position: relative;
+  /* Container */
+  width: 490px;
+  height: 440px;
+  /* font-size: 110px; */
+  /* background: rgba(188, 1, 0, 1); */
 }
