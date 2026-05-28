@@ -82,13 +82,13 @@ export default function Events() {
             <img
               src={"/icons/arrow.png"}
               className={"swiper-button-prev"}
-              style={{ transform: "rotate(-180deg)", marginLeft: '-10px' }}
+              style={{ transform: "rotate(-180deg)", marginLeft: '-30px' }}
             />
             <div className={"dot-frame-pagination swiper-pagination"}></div>
             <img
               src={"/icons/arrow.png"}
               className={"swiper-button-next"}
-              style={{marginRight: '-10px'}}
+              style={{marginRight: '-30px'}}
             />
           </Box>
         </Stack>

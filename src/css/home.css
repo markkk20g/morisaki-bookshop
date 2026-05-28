@@ -641,12 +641,12 @@
 .trend-page .trend-container {
   width: 1300px;
   height: auto;
-  padding: 96px 0;
+  padding: 96px 24px;
 }
 
 .trend-page .trend-container .trend-frame {
   position: relative;
-  width: 95%;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -802,11 +802,60 @@
   background: #f3f3f5;
 }
 
+.top-users-page .top-users-cont {
+  width: 1300px;
+  height: auto;
+  padding: 96px 24px;
+}
+
 .top-users-page .top-users-screen {
   position: relative;
-  width: 100%;
+  width: 95%;
   height: auto;
-  background: #f3f3f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+.top-users-screen .title {
+  position: relative;
+  /* Container */
+  width: 1216px;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.top-users-screen .title span {
+  position: relative;
+  color: rgba(26, 28, 29, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -0.9px;
+  text-align: left;
+}
+
+.top-users-screen .title p {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: rgba(95, 94, 94, 1);
+
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
 }
 
 /***************************************************
@@ -829,20 +878,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 96px 0px;
+  padding: 96px 24px;
 }
 
 .homepage .event-frame .event-sect .event-main {
   position: relative;
-  /* Container */
-  width: 1280px;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 64px;
-  padding: 0px 32px 0px 32px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 80px;
 }
 
 .homepage .event-frame .event-sect .event-main .title {
@@ -886,7 +933,7 @@
 
 .homepage .event-frame .event-sect .event-main .swiper-wrapper {
   position: relative;
-  width: 100%;
+  width: 1225px;
   height: auto;
   display: flex;
   flex-direction: row;
