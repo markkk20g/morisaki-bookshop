@@ -23,13 +23,13 @@
 .bestsellers-frame .section {
   position: relative;
   width: 1300px;
-  height: 886.5px;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: 48px;
-  padding: 96px 24px;
+  padding: 126px 24px 126px 24px;
   margin: 0 auto;
 }
 
@@ -295,7 +295,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 96px 24px;
+  padding: 126px 24px 140px 24px;
   gap: 64px;
 }
 
@@ -641,7 +641,7 @@
 .trend-page .trend-container {
   width: 1300px;
   height: auto;
-  padding: 96px 24px;
+  padding: 126px 24px 140px 24px;
 }
 
 .trend-page .trend-container .trend-frame {
@@ -791,6 +791,21 @@
   align-items: flex-end;
 }
 
+.trend-main .trend-card .trend-content .trend-footer .trend-button {
+  position: relative;
+  padding: 4px 8px;
+
+  color: rgb(28, 28, 28);
+  background: #f5f5f5;
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
+  text-transform: none;
+}
+
 /***************************************************
                  TOP USERS SECTION
 ****************************************************/
@@ -805,7 +820,7 @@
 .top-users-page .top-users-cont {
   width: 1300px;
   height: auto;
-  padding: 96px 24px;
+  padding: 126px 24px 140px 24px;
 }
 
 .top-users-page .top-users-screen {
@@ -1006,7 +1021,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 96px 24px;
+  padding: 126px 24px 140px 24px;
 }
 
 .homepage .event-frame .event-sect .event-main {

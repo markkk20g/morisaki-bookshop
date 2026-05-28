@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import { Product } from "../../../libs/types/product";
 
 interface TrendingCardProps {
@@ -22,7 +23,8 @@ export default function TrendCard(props: TrendingCardProps) {
         <div className="trend-footer">
           <span className="trend-price">${product.productPrice.toFixed(2)}</span>
 
-          <button className="trend-button">🛒 Add</button>
+          {/* <button className="trend-button">🛒 Add</button> */}
+          <Button className="trend-button">See details</Button>
         </div>
       </div>
     </div>

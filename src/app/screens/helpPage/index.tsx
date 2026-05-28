@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 
 import "../../../css/help.css";
+import { faq } from "../../../libs/data/faq";
 
 
 export default function HelpPage() {
@@ -75,22 +76,40 @@ export default function HelpPage() {
               <span>FAQ</span>
             </Stack>
             <Stack className="faq-con">
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreOutlinedIcon />}
-                  aria-controls={`${id}-panel1-content`}
-                  id={`${id}-panel1-header`}
-                >
-                  <Typography component={'span'}>Accordion 1</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Suspendisse malesuada lacus ex, sit amet blandit leo 
-                    lobortis eget.
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
+              {faq.map((value, number) => {
+                return (
+                  <Accordion 
+                    key={number} 
+                    className="accor-frame"
+                    sx={{
+                      '&:before': {
+                        display: 'none',
+                      },
+                    }}
+                  >
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreOutlinedIcon />}
+                      aria-controls={`${id}-panel1-content`}
+                      id={`${id}-panel1-header`}
+                      className="accor-quest"
+                      sx={{
+                        '& .MuiAccordionSummary-content': {
+                          margin: 0,
+                          width: '100%',
+                        },
+                      }}
+                    >
+                      <Typography component={'span'}>{value.question}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails className="accor-ans">
+                      <Typography>
+                        {value.answer}
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                );
+              })}
+              
             </Stack>
           </Stack>
         </Stack>
