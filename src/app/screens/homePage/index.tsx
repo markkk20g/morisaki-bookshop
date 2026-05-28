@@ -40,7 +40,7 @@ interface HomePageProps {
 
 export default function HomePage(props: HomePageProps) {
   const { onAdd } = props;
-  const { setBestSellers, setNewArrivals, setTrendingNow } = actionDispatch(useDispatch());
+  const { setBestSellers, setNewArrivals, setTrendingNow, setTopUsers } = actionDispatch(useDispatch());
 
   useEffect(() => {
     const product = new ProductService();
