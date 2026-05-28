@@ -5,7 +5,7 @@ import Badge from "@mui/material/Badge";
 import Menu from "@mui/material/Menu";
 import CancelIcon from "@mui/icons-material/Cancel";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 import { useHistory } from "react-router-dom";
 import { CartItem } from "../../../libs/types/search";
 import { Messages, serverApi } from "../../../libs/config";
@@ -123,7 +123,7 @@ export default function Basket(props: BasketProps) {
                 <div style={{color:'#1c1d1c'}}>
                   Cart Products:
                 </div>
-                <DeleteForeverIcon 
+                <DeleteForeverOutlinedIcon
                   sx={{ml: '5px', cursor: 'pointer', color:'#1c1d1c'}}
                   onClick={() => onDeleteAll()}
                 />

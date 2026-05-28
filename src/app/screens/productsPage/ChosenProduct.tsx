@@ -101,7 +101,19 @@ export default function ChosenProduct(props: ChosenProductProps) {
                 <span>PAPERBACK</span>
                 <span style={{fontSize: '25px', fontWeight: '600', color: '#1a1c1d'}}>${chosenProduct.productPrice.toFixed(2)}</span>
               </div>
-              <Button className="price">
+              <Button 
+                className="price"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onAdd({
+                    _id: chosenProduct._id,
+                    quantity: 1,
+                    name: chosenProduct.productName,
+                    price: chosenProduct.productPrice,
+                    image: chosenProduct.productImages[0],
+                  })
+                }}
+              >
                 <ShoppingBasketOutlinedIcon style={{color: '#fff'}}/>
                 <span>Add to Basket</span>
               </Button>

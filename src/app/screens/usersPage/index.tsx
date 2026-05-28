@@ -14,13 +14,18 @@ import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUpload
 import "../../../css/users.css";
 import "../../../css/card.css";
 import { OrderStatus } from "../../../libs/enums/order.enum";
-import { Order, OrderInquery } from "../../../libs/types/order";
+import { Order, OrderInquery, OrderItem } from "../../../libs/types/order";
 import OrderService from "../../services/OrderService";
 import { createSelector, Dispatch } from "@reduxjs/toolkit";
 import { setFinishedOrders } from "../ordersPage/slice";
 import { retrieveFinishedOrders } from "../ordersPage/selector";
 import { useDispatch, useSelector } from "react-redux";
 import { MemberType } from "../../../libs/enums/member.enum";
+import { orderDateFormatted } from "../../../libs/common";
+import { Product } from "../../../libs/types/product";
+import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
+import "../../../css/users.css";
+import "../../../css/card.css";
 
 const actionDispatch = (dispatch: Dispatch) => ({
   setFinishedOrders: (data: Order[]) => dispatch(setFinishedOrders(data)),
@@ -276,8 +281,71 @@ export default function UsersPage() {
               </Stack>
               <a href="/orders">VIEW ALL</a>
             </Stack>
-            <Stack className="orders">
-              
+            <Stack className="past-orders">
+              {finishedOrders?.map((order: Order) => {
+                const totalItems = order.orderItems.reduce((sum, item) => {
+                  return sum + item.itemQuantity
+                }, 0);
+                return (
+                  <Stack key={order._id} className="content-card">
+                    <Stack className="content">
+                      <Stack className="head">
+                        <Stack className="title">
+                          <span>{order?.orderNumber}</span>
+                          <Stack className="order-status">
+                            <p>{orderDateFormatted(order?.updatedAt)}</p>
+                            <TaskAltOutlinedIcon style={{color: 'rgba(0, 108, 73, 1)', fontSize: '17px'}}/>
+                            <p>{order?.orderStatus}</p>
+                          </Stack>
+                        </Stack>
+                        <Stack className="totals">
+                          <p>$ {order.orderTotal.toFixed(2)}</p>
+                          <span>Total</span>
+                        </Stack>
+                      </Stack>
+                      <Stack className="orders">
+                        {order?.orderItems?.map((item: OrderItem) => {
+                          const product: Product = order.productData.filter(
+                            (ele: Product) => item.productId === ele._id
+                          )[0];
+                          const imagePath = `${serverApi}/${product.productImages[0]}`;
+                          return (
+                            <Stack key={item.productId} className="item">
+                              <Stack className="item-title">
+                                <Box>
+                                  <img src={imagePath} alt=""/>
+                                </Box>
+                                <Stack className="names">
+                                  <span>{product?.productName}</span>
+                                  <p>{product?.productAuthorName}</p>
+                                </Stack>
+                              </Stack>
+                              <Stack className="item-price">
+                                <span>${item.itemPrice.toFixed(2)}</span>
+                                <p>Qty: {item.itemQuantity}</p>
+                              </Stack>
+                            </Stack>
+                          );
+                        })}           
+                      </Stack>
+                      {/* <Stack className="sums">
+                        <Stack className="cost">
+                          <span>Subtotal ({totalItems} items)</span>
+                          <p>$ {(order.orderTotal - order.orderDelivery).toFixed(2)}</p>
+                        </Stack>
+                        <Stack className="cost">
+                          <span>Shipping</span>
+                          <p>{order.orderDelivery ? `$ ${order.orderDelivery.toFixed(2)}` : "Free"}</p>
+                        </Stack>
+                        <Stack className="total">
+                          <span>Total</span>
+                          <p>$ {order.orderTotal.toFixed(2)}</p>
+                        </Stack>
+                      </Stack> */}
+                    </Stack>
+                  </Stack>
+                );
+              })}
             </Stack>
           </Stack>
         </Stack>

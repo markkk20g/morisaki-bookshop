@@ -38,10 +38,6 @@ export default function FinishedOrders() {
                     <span>{order?.orderNumber}</span>
                     <p>{orderDateFormatted(order?.createdAt)}</p>
                   </Stack>
-                  <Stack className="butts">
-                    {/* <Button className="verify">Verify to fulfill</Button> */}
-                    {/* <Button className="pay">payment</Button> */}
-                  </Stack>
                 </Stack>
                 <Stack className="orders">
                   {order?.orderItems?.map((item: OrderItem) => {
@@ -66,53 +62,7 @@ export default function FinishedOrders() {
                         </Stack>
                       </Stack>
                     );
-                  })}
-                  {/* <Stack className="item">
-                    <Stack className="item-title">
-                      <Box>
-                        <img src="/img/new/lie-to-me.webp" alt=""/>
-                      </Box>
-                      <Stack className="names">
-                        <span>The Great Gatsby</span>
-                        <p>F. Scott Fitzgerald</p>
-                      </Stack>
-                    </Stack>
-                    <Stack className="item-price">
-                      <span>$17.50</span>
-                      <p>Qty: 1</p>
-                    </Stack>
-                  </Stack>
-                  <Stack className="item">
-                    <Stack className="item-title">
-                      <Box>
-                        <img src="/img/new/lie-to-me.webp" alt=""/>
-                      </Box>
-                      <Stack className="names">
-                        <span>The Great Gatsby</span>
-                        <p>F. Scott Fitzgerald</p>
-                      </Stack>
-                    </Stack>
-                    <Stack className="item-price">
-                      <span>$17.50</span>
-                      <p>Qty: 1</p>
-                    </Stack>
-                  </Stack>
-                  <Stack className="item">
-                    <Stack className="item-title">
-                      <Box>
-                        <img src="/img/new/lie-to-me.webp" alt=""/>
-                      </Box>
-                      <Stack className="names">
-                        <span>The Great Gatsby</span>
-                        <p>F. Scott Fitzgerald</p>
-                      </Stack>
-                    </Stack>
-                    <Stack className="item-price">
-                      <span>$17.50</span>
-                      <p>Qty: 1</p>
-                    </Stack>
-                  </Stack> */}
-                  
+                  })}           
                 </Stack>
                 <Stack className="sums">
                   <Stack className="cost">
