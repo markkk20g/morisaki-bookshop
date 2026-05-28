@@ -199,7 +199,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
                 <Button className="button" onClick={handleSignupRequest}>Sign Up</Button>
 
                 <Stack className="footer-link">
-                  <span>Don't have an account?</span>
+                  <span>Already have an account?</span>
                   <Button
                     variant="text"
                     size="small"
@@ -211,7 +211,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
                       verticalAlign: 'baseline',
                     }}
                   >
-                    Sign up
+                    Login
                   </Button>
                 </Stack>
               </Stack>
@@ -254,6 +254,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
                   <input
                     className="input"
                     type="text"
+                    placeholder="username"
                     onChange={handleUsername}
                   />
                 </Stack>
@@ -263,6 +264,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
                   <input
                     className="input"
                     type="password"
+                    placeholder="********"
                     onChange={handlePassword}
                     onKeyDown={handlePasswordKeyDown}
                   />
