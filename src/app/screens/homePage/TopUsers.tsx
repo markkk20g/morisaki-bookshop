@@ -1,5 +1,6 @@
 import { Container, Stack } from "@mui/material";
 import React from "react";
+import TopUsersCard from "../../components/common/TopUsersCard";
 
 export default function TopUsers() {
   return (
@@ -9,6 +10,9 @@ export default function TopUsers() {
           <Stack className="title">
             <span>Top Users</span>
             <p>Our most active readers leading the community</p>
+          </Stack>
+          <Stack className="top-main">
+             <TopUsersCard />
           </Stack>
         </Stack>
       </Container>
