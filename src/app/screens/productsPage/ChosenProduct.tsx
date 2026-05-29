@@ -15,6 +15,9 @@ import { useDispatch, useSelector } from "react-redux";
 import ProductService from "../../services/ProductService";
 import MemberService from "../../services/MemberService";
 import { serverApi } from "../../../libs/config";
+import StarIcon from '@mui/icons-material/Star';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 const actionDispatch = (dispatch: Dispatch) => ({
   setAdmin: (data: Member) => dispatch(setAdmin(data)),
@@ -88,8 +91,20 @@ export default function ChosenProduct(props: ChosenProductProps) {
                 <span style={{color: '#5f5e5e', textDecoration: 'none'}}>by</span>
                 <span>{chosenProduct.productAuthorName}</span>
               </div>
-              {/* <div className="divider"></div> */}
-              <div className="rating"></div>
+              <div className="divider"></div>
+              <Stack className="rating" flexDirection={'row'}>
+                <StarIcon />
+                <StarIcon />
+                <StarIcon />
+                <StarIcon />
+                <StarHalfIcon />
+                <span>4.5</span>
+              </Stack>
+              <div className="divider"></div>
+              <Stack className="view-cnt">
+                <VisibilityIcon />
+                <span>{chosenProduct.productViews}</span>
+              </Stack>
             </div>
           </Stack>
           <Stack className="main-content">

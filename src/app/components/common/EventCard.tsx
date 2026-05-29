@@ -17,20 +17,22 @@ export default function EventCard({ event }: any) {
       </Box>
 
       <Stack className="event-info">
-        <Stack className="header">
-          <CalendarMonthOutlinedIcon
-            style={{
-              color: "#bc0100",
-              width: "17px",
-            }}
-          />
+        <Stack className="top-part">
+          <Stack className="header">
+            <CalendarMonthOutlinedIcon
+              style={{
+                color: "#bc0100",
+                width: "17px",
+              }}
+            />
 
-          <span>{event.date}</span>
+            <span>{event.date}</span>
+          </Stack>
+
+          <strong>{event.title}</strong>
+
+          <p>{event.desc}</p>
         </Stack>
-
-        <strong>{event.title}</strong>
-
-        <p>{event.desc}</p>
 
         <Stack className="location">
 

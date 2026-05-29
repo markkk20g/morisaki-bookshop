@@ -662,7 +662,7 @@
   margin-top: 35px;
 }
 
-.content-card {
+.past-card {
   position: relative;
   width: 710px;
   height: auto;
@@ -682,13 +682,13 @@
   background: rgba(255, 255, 255, 1);
 }
 
-.content-card:hover {
+.past-card:hover {
   border-left: 4px solid #eb0100;
   border-radius: 24px;
   transform: scale(1.04);
 }
 
-.content-card .content {
+.past-card .content {
   position: relative;
   /* Container */
   width: 100%;
@@ -701,7 +701,7 @@
   gap: 8px;
 }
 
-.content-card .content .head {
+.past-card .content .head {
   position: relative;
   /* HorizontalBorder */
   width: 100%;
@@ -716,7 +716,7 @@
   border-bottom: 1px solid rgba(187, 202, 191, 0.5);
 }
 
-.content-card .content .head .title {
+.past-card .content .head .title {
   position: relative;
   /* Container */
   width: 233.84px;
@@ -729,7 +729,7 @@
   gap: 4px;
 }
 
-.content-card .content .head span {
+.past-card .content .head span {
   position: relative;
   color: rgba(11, 28, 48, 1);
 
@@ -742,7 +742,7 @@
   text-align: left;
 }
 
-.content-card .content .head .title .order-status {
+.past-card .content .head .title .order-status {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -751,7 +751,7 @@
   gap: 15px;
 }
 
-.content-card .content .head p {
+.past-card .content .head p {
   position: relative;
   margin: 0;
   padding: 0;
@@ -767,7 +767,7 @@
   text-transform: uppercase;
 }
 
-.content-card .content .head .totals {
+.past-card .content .head .totals {
   position: relative;
   /* Container */
   width: auto;
@@ -781,7 +781,7 @@
   margin-right: 8px;
 }
 
-.content-card .content .head .totals p {
+.past-card .content .head .totals p {
   position: relative;
   color: rgba(11, 28, 48, 1);
   /* color: rgba(60, 74, 66, 1); */
@@ -795,7 +795,7 @@
   text-align: left;
 }
 
-.content-card .content .head .totals span {
+.past-card .content .head .totals span {
   /* color: rgba(11, 28, 48, 1); */
   color: rgba(60, 74, 66, 1);
 
@@ -816,7 +816,7 @@
   text-transform: uppercase;
 }
 
-.content-card .content .orders {
+.past-card .content .orders {
   position: relative;
   width: 100%;
   height: auto;
@@ -829,16 +829,16 @@
   overflow-x: hidden;
 }
 
-.content-card .content .orders::-webkit-scrollbar {
+.past-card .content .orders::-webkit-scrollbar {
   width: 4px;
 }
 
-.content-card .content .orders::-webkit-scrollbar-thumb {
+.past-card .content .orders::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.15);
   border-radius: 999px;
 }
 
-.content-card .content .orders .item {
+.past-card .content .orders .item {
   position: relative;
   width: 100%;
   height: 58px;
@@ -849,7 +849,7 @@
   padding: 4px 0.01px 4px 0px;
 }
 
-.content-card .content .orders .item .item-title {
+.past-card .content .orders .item .item-title {
   position: relative;
   width: auto;
   height: 40px;
@@ -860,7 +860,7 @@
   gap: 12px;
 }
 
-.content-card .content .orders .item .item-title img {
+.past-card .content .orders .item .item-title img {
   position: relative;
   width: 45px;
   height: 36px;
@@ -873,7 +873,7 @@
   background: rgba(229, 238, 255, 1);
 }
 
-.content-card .content .orders .item .item-title .names {
+.past-card .content .orders .item .item-title .names {
   position: relative;
   width: auto;
   height: 40px;
@@ -883,7 +883,7 @@
   align-items: flex-start;
 }
 
-.content-card .content .orders .item .item-title .names span {
+.past-card .content .orders .item .item-title .names span {
   position: relative;
   color: rgba(11, 28, 48, 1);
 
@@ -896,7 +896,7 @@
   text-align: left;
 }
 
-.content-card .content .orders .item .item-title .names p {
+.past-card .content .orders .item .item-title .names p {
   color: rgba(60, 74, 66, 1);
   margin: 0;
   padding: 0;
@@ -909,7 +909,7 @@
   text-align: left;
 }
 
-.content-card .content .orders .item .item-price {
+.past-card .content .orders .item .item-price {
   position: relative;
   width: 53.59px;
   height: 40px;
@@ -920,7 +920,7 @@
   margin-right: 8px;
 }
 
-.content-card .content .orders .item .item-price span {
+.past-card .content .orders .item .item-price span {
   color: rgba(11, 28, 48, 1);
   font-family: "Inter", sans-serif;
   font-style: Bold;
@@ -931,7 +931,7 @@
   text-align: left;
 }
 
-.content-card .content .orders .item .item-price p {
+.past-card .content .orders .item .item-price p {
   color: rgba(60, 74, 66, 1);
   margin: 0;
   padding: 0;
@@ -944,7 +944,7 @@
   text-align: left;
 }
 
-.content-card .content .sums {
+.past-card .content .sums {
   position: relative;
   width: 100%;
   height: auto;
@@ -957,7 +957,7 @@
   background: rgba(239, 244, 255, 1);
 }
 
-.content-card .content .sums .cost {
+.past-card .content .sums .cost {
   position: relative;
   width: 100%;
   height: 20px;
@@ -968,7 +968,7 @@
   padding: 0px 0.01px 0px 0px;
 }
 
-.content-card .content .sums .cost span {
+.past-card .content .sums .cost span {
   color: rgba(60, 74, 66, 1);
   font-family: "Inter", sans-serif;
   font-style: Regular;
@@ -979,7 +979,7 @@
   text-align: left;
 }
 
-.content-card .content .sums .cost p {
+.past-card .content .sums .cost p {
   color: rgba(60, 74, 66, 1);
   margin: 0;
   padding: 0;
@@ -992,7 +992,7 @@
   text-align: left;
 }
 
-.content-card .content .sums .total {
+.past-card .content .sums .total {
   position: relative;
   width: 100%;
   height: 29px;
@@ -1004,7 +1004,7 @@
   border-top: 1px solid rgba(187, 202, 191, 0.3);
 }
 
-.content-card .content .sums .total span {
+.past-card .content .sums .total span {
   color: rgba(11, 28, 48, 1);
   font-family: "Inter", sans-serif;
   font-style: Bold;
@@ -1015,7 +1015,7 @@
   text-align: left;
 }
 
-.content-card .content .sums .total p {
+.past-card .content .sums .total p {
   color: rgba(11, 28, 48, 1);
   margin: 0;
   padding: 0;

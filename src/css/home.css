@@ -59,6 +59,19 @@
   color: black;
 }
 
+.bestsellers-frame .section .section-title-info .section-title span {
+  position: relative;
+  color: rgba(95, 94, 94, 1);
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-style: Regular;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
 .bestsellers-frame .section .section-title-info .view-more-btn {
   position: relative;
   width: auto;
@@ -625,6 +638,25 @@
   margin-top: -50px;
   display: flex;
   flex-direction: column;
+}
+
+.homepage .ads-frame {
+  width: 100%;
+  height: 693px;
+  display: flex;
+  overflow: hidden;
+  transform: perspective(0px);
+  box-shadow: -3px 0px 20px 14px #34343440;
+  object-fit: cover;
+}
+
+.homepage .ads-frame .ads-video {
+  width: 100%;
+  background: #0c0e12;
+  display: flex;
+  box-shadow: 0px -8px 90px rgb(215 215 255);
+  transform: scale(1.5);
+  overflow: hidden;
 }
 
 /***************************************************

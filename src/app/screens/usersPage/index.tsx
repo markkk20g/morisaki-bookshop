@@ -287,7 +287,7 @@ export default function UsersPage() {
                   return sum + item.itemQuantity
                 }, 0);
                 return (
-                  <Stack key={order._id} className="content-card">
+                  <Stack key={order._id} className="past-card">
                     <Stack className="content">
                       <Stack className="head">
                         <Stack className="title">

@@ -37,12 +37,13 @@
   position: relative;
   /* Aside - Sidebar: Filters & Sort */
   width: 162.67px;
-  height: 1477.91px;
+  height: 1447.91px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 40px;
+  margin-top: 30px;
 }
 
 .products-page .products-screen .sidebar-filter .sidebar-category {

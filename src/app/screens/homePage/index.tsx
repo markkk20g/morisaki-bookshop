@@ -22,6 +22,7 @@ import "../../../css/home.css";
 import "../../../css/card.css";
 import "../../../css/cards/eventCard.css";
 import "../../../css//statistic.css";
+import Advertisement from "./Advertisement";
 
 /****************************************
               REDUX SLICE
@@ -77,6 +78,7 @@ export default function HomePage(props: HomePageProps) {
       <Bestsellers />
       <NewArrivals onAdd={onAdd} />
       {/* <CustomersPicks /> */}
+      <Advertisement />
       <Trending />
       <TopUsers />
       <Events />

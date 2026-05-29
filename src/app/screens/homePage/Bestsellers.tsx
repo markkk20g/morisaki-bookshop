@@ -45,7 +45,7 @@ export default function Bestsellers() {
           <Stack className="section-title-info">
             <Stack className="section-title">
               <Box className="section-title-txt">Bestsellers</Box>
-              <Box>The titles defining this month's cultural conversation.</Box>
+              <span>Bestselling books chosen by readers worldwide.</span>
             </Stack>
             <Box className="view-more-btn">
               <Button className="btn">
